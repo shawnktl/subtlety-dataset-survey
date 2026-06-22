@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VinDr-CXR — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>VinDr-CXR</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy)</li>
+  <li><strong>Modality / anatomy:</strong> CXR / 22 local findings, 6 global diagnoses</li>
+  <li><strong>Finding type:</strong> Thoracic findings (localized + global)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field, but inter-reader variance per finding is computable. 18,000 CXRs annotated by 17 experienced radiologists; each finding localized with bounding box.</p>
+<h2>Label provenance</h2>
+<p><strong>Training set: 3 readers per case.</strong> Test set: consensus of 5 readers. Disagreements adjudicated by 2 reviewers.</p>
+<h2>Size</h2>
+<p>~100k retrospectively collected; 18k manually annotated.</p>
+<h2>Access / licensing</h2>
+<p>Open via PhysioNet (credentialed). <a href="https://physionet.org/content/vindr-cxr/1.0.0/">https://physionet.org/content/vindr-cxr/1.0.0/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Reader-disagreement signal preserved in training set (3 independent reads).</li>
+  <li>No explicit subtlety field.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Multi-rater design preserves disagreement signal; large enough for modeling.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

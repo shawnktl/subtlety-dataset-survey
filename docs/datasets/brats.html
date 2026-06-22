@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BraTS — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>BraTS</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy)</li>
+  <li><strong>Modality / anatomy:</strong> Multi-sequence brain MRI / glioma tumor subregions</li>
+  <li><strong>Finding type:</strong> Glioma segmentation subregions</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety label. Multi-rater segmentation variance as proxy for region-level perceptibility. Inter-rater DSC reported at 0.74–0.85, encoding genuine segmentation ambiguity.</p>
+<h2>Label provenance</h2>
+<p>1–4 raters per case for manual segmentation. 2024 BraTS extended to post-treatment glioma.</p>
+<h2>Size</h2>
+<p>Thousands of cases across challenge years (2012–2025).</p>
+<h2>Access / licensing</h2>
+<p>Open via the BraTS challenge / Synapse. <a href="https://www.synapse.org/brats">https://www.synapse.org/brats</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Per-rater segmentations are usually consolidated to a single ground truth in distributed data; the disagreement-as-signal is mostly reported in the challenge papers, not always preserved per-voxel.</li>
+  <li>No explicit subtlety label.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Multi-rater segmentation variance as proxy for region-level perceptibility. The closest thing to a &quot;difficulty&quot; signal in brain MRI.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMBED (Emory mammography) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>EMBED (Emory mammography)</h1>
+<ul>
+  <li><strong>Tier:</strong> C (possibly B on closer inspection of the schema)</li>
+  <li><strong>Modality / anatomy:</strong> FFDM + DBT / lesion-level annotations</li>
+  <li><strong>Finding type:</strong> Breast lesions (BI-RADS descriptors)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p><strong>No explicit subtlety/conspicuity field</strong> in the published documentation reviewed. 40,000 annotated lesions with BI-RADS descriptors (mass shape, calcification type, etc.).</p>
+<h2>Label provenance</h2>
+<p>Lesion-level annotations; structured DB (MagView) underlying.</p>
+<h2>Size</h2>
+<p>3.4M images, 116k women, racially diverse.</p>
+<h2>Access / licensing</h2>
+<p>AWS Open Data Registry + Emory DUA. <a href="https://registry.opendata.aws/emory-breast-imaging-dataset-embed/">https://registry.opendata.aws/emory-breast-imaging-dataset-embed/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li><strong>Verify before relying on:</strong> the headline paper doesn&#x27;t list conspicuity, but the underlying MagView structured DB may include a field not surfaced in the headline paper. Confirm subtlety/conspicuity coverage directly — possible the structured DB has a field not surfaced. Worth a direct check of the schema.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Adjacent today; could upgrade to a difficulty-proxy dataset if the schema turns out to carry a conspicuity field.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

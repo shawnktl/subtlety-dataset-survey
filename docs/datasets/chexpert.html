@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheXpert — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CheXpert</h1>
+<ul>
+  <li><strong>Tier:</strong> C — uncertainty axis exists but is upstream of perceptibility</li>
+  <li><strong>Modality / anatomy:</strong> CXR / 14 observations</li>
+  <li><strong>Finding type:</strong> Thoracic observations</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>NLP-derived labels with <strong>uncertainty values</strong> (positive / negative / uncertain / blank). This is a <em>labeler</em> uncertainty, not a reader perceptibility rating, but the uncertain class is sometimes used as a proxy for &quot;difficult to call.&quot;</p>
+<h2>Label provenance</h2>
+<p>NLP-derived from reports.</p>
+<h2>Size</h2>
+<p>224,316 images, 65,240 patients.</p>
+<h2>Access / licensing</h2>
+<p>Open via Stanford AIMI. <a href="https://stanfordmlgroup.github.io/competitions/chexpert/">https://stanfordmlgroup.github.io/competitions/chexpert/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>The uncertainty label reflects report-language ambiguity, not visual subtlety per se.</li>
+  <li>Heavy known label-noise issues.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Uncertainty axis exists but is upstream of perceptibility.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
