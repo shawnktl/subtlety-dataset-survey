@@ -22,67 +22,67 @@
 
 # Original spec
 
-# Agent Spec — Subtlety/Perceptibility Dataset Survey Repo
+# Agent Spec — Subtlety Dataset Survey: Browsable HTML View (GitHub Pages)
 
 ## Objective
-Turn the completed 26-dataset survey (in this project's `research-output.md`) into a
-dedicated, browsable reference repo so the dataset landscape is organized at the
-repo level rather than living in a single markdown file. "Done" = a `knowledge-base`
-repo populated with one page per dataset, a tier-ranked index, access/licensing notes,
-and a crosswalk to the detectability framing — delivered as a PR on
-`shawnktl/subtlety-dataset-survey`.
-
-## Source of truth
-The authoritative content is `projects/subtlety-dataset-search/research-output.md` in
-the task-rounding repo. The dispatching step copies the project's spec to the target
-repo as `.agent/task.md`; the agent should also be given (or fetch) the
-`research-output.md` content as the input corpus. Do NOT re-research from scratch —
-restructure and lightly verify what's already there. Preserve every "verify directly
-before relying on" caveat already flagged in the survey.
+Turn the existing markdown survey repo (`shawnktl/subtlety-dataset-survey`) into a
+**browsable static HTML site publishable via GitHub Pages**. "Done" = a generated
+`docs/` site that renders the tier index and every per-dataset page as navigable HTML,
+plus GitHub Pages serving it, so the survey is explorable in a browser rather than only
+as raw markdown. This is the **HTML-view-only** scope — an automated weekly refresh
+cadence is explicitly out of scope for this pass (a later spec).
 
 ## Scope
-**SHOULD create / populate:**
-- `datasets/<dataset-id>.md` — one page per dataset (26 total). Each page: name, modality,
-  finding type, the subtlety/perceptibility/conspicuity label it carries, label provenance,
-  size, access conditions/licensing, tier (A/B/C), and a one-line "relevance to detectability."
-- `index.md` (or `study/topics.md` per the bootstrap convention) — tier-ranked table linking
-  to each dataset page. Tier A = direct subtlety/conspicuity labels (LIDC-IDRI, JSRT, CBIS-DDSM,
-  LNDb, OPTIMAM/OMI-DB); Tier B/C below.
-- `notes/follow-ups.md` — the top-3 follow-ups (CheXthought; JSRT+LNDb external-validation
-  pairing; CBIS-DDSM → OPTIMAM mammography) and the major gap (MR-with-subtlety-labels).
-- `resources/sources.md` — links/citations for each dataset's source page.
-- `PROJECT_SUMMARY.md` — scope (publicly available datasets annotating finding subtlety/
-  perceptibility/conspicuity), why (broader detectability product/pipeline framing from
-  `nodule-detectability`), and how the repo is used.
+**SHOULD touch / create:**
+- A build script (e.g. `scripts/build_site.py`) that converts the repo's markdown
+  (`index.md`, `datasets/*.md`, `notes/*.md`, `resources/*.md`, `PROJECT_SUMMARY.md`)
+  into a static HTML site under `docs/`.
+- `docs/` output (the generated site): `docs/index.html` (landing = tier index), one
+  HTML page per dataset, a styled template/CSS, and cross-page navigation.
+- A short README section documenting how to rebuild the site and the Pages URL.
+- A workflow file `.github/workflows/pages.yml` ONLY if needed to publish `docs/` to
+  GitHub Pages on push (build-and-deploy of the already-committed site is fine; do NOT
+  add scheduled/cron refresh logic — that's the deferred auto-refresh spec).
 
 **MUST NOT touch:**
-- `BOOTSTRAP.md`, `CLAUDE.md`, `scripts/` — provided by the knowledge-base bootstrap; leave as-is.
+- The substance of the survey content in `datasets/`, `index.md`, `notes/`,
+  `resources/` — render it, don't rewrite it. Preserve every "verify directly before
+  relying on" caveat verbatim in the rendered output.
+- `.agent/`, `BOOTSTRAP.md`, `CLAUDE.md`.
 
 ## Tasks
-1. Read `BOOTSTRAP.md` / `CLAUDE.md` to understand the knowledge-base layout.
-2. Parse `research-output.md` into the 26 per-dataset pages under `datasets/`.
-3. Build the tier-ranked `index.md` linking every dataset page.
-4. Write `notes/follow-ups.md` (top-3 + the MR gap) and `resources/sources.md`.
-5. Fill `PROJECT_SUMMARY.md`.
-6. Carry forward every "verify before relying on" caveat verbatim onto the relevant dataset page.
-7. Open a PR from the work branch.
+1. Inventory the markdown sources and the tier structure in `index.md` so the site's
+   landing page and navigation mirror the existing tier ranking (Tier A direct-label
+   datasets first, etc.).
+2. Write `scripts/build_site.py` — a small, dependency-light markdown→HTML build
+   (standard-library or a single well-known lib pinned in a `requirements.txt`). It must
+   render headings, lists, tables, links, inline code, and bold/italic.
+3. Produce a clean, readable template with a persistent nav (tier index / dataset list)
+   and a per-dataset page layout (labels, access/licensing, detectability-framing
+   crosswalk). Keep styling simple and legible — this is a reference resource.
+4. Generate the full `docs/` site and commit it.
+5. Add `.github/workflows/pages.yml` to deploy `docs/` to GitHub Pages (if the simpler
+   "Pages from `docs/` folder" setting can't be assumed). Confirm the published URL.
+6. Update `README.md` with: how to rebuild (`python scripts/build_site.py`) and the
+   live Pages URL.
 
 ## Constraints
 - Work on branch `agent/subtlety-dataset-search`.
 - Commit with prefix `agent:`.
-- Open a PR when done; do not push to `main` directly.
-- Do not invent datasets or labels not present in the source survey.
+- Don't push to main/master directly — open a PR.
+- HTML view only. No scheduled/automated content-refresh logic this pass.
 
 ## Acceptance Criteria
-- [ ] One `datasets/<id>.md` page exists per dataset in the survey (≈26), each with tier + access + relevance fields.
-- [ ] `index.md` ranks datasets by tier and links every page.
-- [ ] `notes/follow-ups.md` captures the top-3 follow-ups and the MR-subtlety gap.
-- [ ] All prior "verify directly" caveats are preserved.
-- [ ] `BOOTSTRAP.md`, `CLAUDE.md`, `scripts/` unchanged.
-- [ ] A PR is open from `agent/subtlety-dataset-search`.
+- [ ] `scripts/build_site.py` regenerates the full site deterministically from the markdown.
+- [ ] `docs/index.html` is the tier-ranked landing page; every dataset has its own HTML page.
+- [ ] Navigation lets you move between the index and any dataset page without editing URLs.
+- [ ] All survey content and caveats are preserved (rendered, not rewritten).
+- [ ] GitHub Pages serves the site; the URL is recorded in the README.
+- [ ] A PR is opened from `agent/subtlety-dataset-search`.
 
 ## Context
-Spawned from `nodule-detectability`. The downstream consumer is the broader
-detectability product framing (patent-lawyer interest, MAE-band vs k-NN output). The
-repo's value is making "what labeled data exists across modalities/findings" answerable
-at a glance, so the framing's generality (or nodule-specificity) is easy to reason about.
+The repo was populated from the 26-dataset survey (CT, CXR, mammography FFDM+DBT, MR,
+fundus, MSK, PE imaging) in PR #2. The user wants this to become an easily explorable,
+shareable, publicly accessible resource — in the spirit of the Radiology Opportunities
+Tracker. This spec is the first step (browsable HTML view) so the user can see how it
+looks before committing to the eventual automated weekly refresh cadence.
