@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NLST (National Lung Screening Trial) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>NLST (National Lung Screening Trial)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent; high-value for a custom missed-on-prior subset but not turnkey</li>
+  <li><strong>Modality / anatomy:</strong> Low-dose chest CT / lung cancer screening</li>
+  <li><strong>Finding type:</strong> Lung cancer (screening outcomes)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No native &quot;missed-on-prior&quot; or &quot;perceptibility&quot; labeling. The &quot;missed cancer&quot; subset (cancers detected at a later screening round whose prior CTs retrospectively showed the lesion) has been characterized in published work (PMC7759925) — ~74 missed cancers identifiable across ~113 prior CTs — but this is a <em>derivable</em> subset, not a packaged dataset with missed-on-prior labels.</p>
+<h2>Label provenance</h2>
+<p>Standard NLST outcomes (screen result, cancer dx).</p>
+<h2>Size</h2>
+<p>~54k participants, 75k+ CT exams.</p>
+<h2>Access / licensing</h2>
+<p>Open via NCI CDAS with DUA. <a href="https://cdas.cancer.gov/nlst/">https://cdas.cancer.gov/nlst/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>No native &quot;missed-on-prior&quot; or &quot;perceptibility&quot; labeling.</li>
+  <li>Can be reconstructed by case linkage but requires work.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>High-value for a custom missed-on-prior subset but not turnkey.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
