@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheXthought — highest-leverage new discovery — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CheXthought — highest-leverage new discovery</h1>
+<ul>
+  <li><strong>Tier:</strong> A/B hybrid — direct operationalization of case difficulty / inter-reader disagreement</li>
+  <li><strong>Modality / anatomy:</strong> CXR / general thoracic</li>
+  <li><strong>Finding type:</strong> General thoracic (reasoning + attention, not categorical findings)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p><strong>Chain-of-thought reasoning traces</strong> (103,592 traces) + <strong>synchronized visual attention annotations</strong> (~6.6M) across 50,312 multi-read CXRs. Multi-reader design supports modeling of human–human and AI–human disagreement directly from the image. Captures <em>how</em> radiologists communicate uncertainty.</p>
+<h2>Label provenance</h2>
+<p>Contributed by <strong>501 radiologists in 71 countries</strong>; multi-read design.</p>
+<h2>Size</h2>
+<p>50,312 CXRs, 103k reasoning traces, ~6.6M visual attention annotations.</p>
+<h2>Access / licensing</h2>
+<p>Stanford AIMI shared datasets — non-commercial research free; commercial license $70k/yr per dataset. <a href="https://stanfordaimi.azurewebsites.net/">https://stanfordaimi.azurewebsites.net/</a> (and <a href="https://aimi.stanford.edu/shared-datasets">https://aimi.stanford.edu/shared-datasets</a>)</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Very new (released 2026; paper arXiv:2604.26288).</li>
+  <li><strong>Verify before relying on:</strong> referenced details come from the arXiv preprint (arXiv:2604.26288) and a third-party blog (allhealthtech). Confirm directly on the Stanford AIMI portal that the dataset is downloadable and that the chain-of-thought + visual attention components are included in the public release (not held back for commercial license).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p><strong>Most aligned dataset with the broader detectability/perceptibility framing.</strong> Not a categorical subtlety label, but the <em>direct</em> operationalization of &quot;case difficulty / inter-reader disagreement / uncertainty communication&quot; at unprecedented scale. <strong>Pursue first</strong> (see <code>notes/follow-ups.md</code>).</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

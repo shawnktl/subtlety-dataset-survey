@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Index — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a class="active" href="index.html">Index</a>
+    <a href="index.html#datasets">Datasets</a>
+    <a href="notes/follow-ups.html">Follow-ups</a>
+    <a href="resources/sources.html">Sources</a>
+    <a href="project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+<p class="subtitle">Tier-ranked index of 26 public radiology datasets with subtlety / perceptibility / conspicuity signal.</p>
+<h1>Subtlety / Perceptibility Dataset Index</h1>
+<p>Tier-ranked index of 26 public radiology datasets surveyed for <strong>explicit subtlety / perceptibility / conspicuity labels</strong> (or usable difficulty proxies). Built from the completed survey (<code>research-output.md</code> in <code>nodule-detectability</code>&#x27;s task-rounding project). See <code>PROJECT_SUMMARY.md</code> for scope and purpose, and <code>notes/follow-ups.md</code> for the highest-leverage next moves.</p>
+<h2>Tiering</h2>
+<ul>
+  <li><strong>Tier A — Direct subtlety/perceptibility/conspicuity labels.</strong> A dataset carries an explicit numeric or categorical subtlety/conspicuity field.</li>
+  <li><strong>Tier B — Reader-disagreement / multi-rater designs.</strong> No explicit subtlety field, but multi-reader label noise / disagreement is usable as a difficulty proxy.</li>
+  <li><strong>Tier C — Adjacent / partial signal.</strong> Weaker fit — process-level (eye-tracking) signal, derivable subsets, or no perceptibility axis at all (listed for completeness).</li>
+</ul>
+<hr>
+<h2 id="datasets">Tier A — Direct subtlety / conspicuity labels</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Modality / anatomy</th>
+<th>Subtlety label</th>
+<th>Size</th>
+<th>Access</th>
+<th>Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LIDC-IDRI</td>
+<td>Thoracic CT / lung nodules</td>
+<td>Per-nodule subtlety 1–5, up to 4 readers</td>
+<td>1,018 cases, ~2,600+ nodules</td>
+<td>Open (TCIA)</td>
+<td><a href="datasets/lidc-idri.html">lidc-idri</a></td>
+</tr>
+<tr>
+<td>JSRT</td>
+<td>CXR (digitized film) / lung nodules</td>
+<td>5 subtlety levels, consensus</td>
+<td>247 CXRs</td>
+<td>Open (registration)</td>
+<td><a href="datasets/jsrt.html">jsrt</a></td>
+</tr>
+<tr>
+<td>CBIS-DDSM</td>
+<td>Screen-film mammography / masses + calc</td>
+<td>Per-lesion subtlety 1–5</td>
+<td>~2,620 cases</td>
+<td>Open (TCIA)</td>
+<td><a href="datasets/cbis-ddsm.html">cbis-ddsm</a></td>
+</tr>
+<tr>
+<td>LNDb</td>
+<td>Thoracic CT / lung nodules</td>
+<td>LIDC-style subtlety, multi-reader</td>
+<td>294 CT scans</td>
+<td>Open (Zenodo / GC)</td>
+<td><a href="datasets/lndb.html">lndb</a></td>
+</tr>
+<tr>
+<td>OPTIMAM (OMI-DB)</td>
+<td>FFDM/DBT/MRI / breast lesions</td>
+<td>Per-lesion conspicuity</td>
+<td>1.3M studies, ~7M images</td>
+<td>Restricted (DUA)</td>
+<td><a href="datasets/optimam-omi-db.html">optimam-omi-db</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Tier A/B hybrid — direct difficulty operationalization</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Modality / anatomy</th>
+<th>Signal</th>
+<th>Size</th>
+<th>Access</th>
+<th>Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CheXthought</td>
+<td>CXR / general thoracic</td>
+<td>Chain-of-thought + visual attention + multi-reader disagreement</td>
+<td>50,312 CXRs, 103k traces</td>
+<td>Stanford AIMI (non-commercial free; $70k/yr commercial)</td>
+<td><a href="datasets/chexthought.html">chexthought</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Tier B — Reader-disagreement / multi-rater designs (difficulty proxy)</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Modality / anatomy</th>
+<th>Multi-rater signal</th>
+<th>Size</th>
+<th>Access</th>
+<th>Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VinDr-CXR</td>
+<td>CXR / 22 findings</td>
+<td>3 readers/case (train), 5-reader consensus (test)</td>
+<td>18k annotated</td>
+<td>Open (PhysioNet)</td>
+<td><a href="datasets/vindr-cxr.html">vindr-cxr</a></td>
+</tr>
+<tr>
+<td>VinDr-Mammo</td>
+<td>FFDM / breast lesions</td>
+<td>Double-read + arbitration</td>
+<td>5,000 exams</td>
+<td>Open (PhysioNet)</td>
+<td><a href="datasets/vindr-mammo.html">vindr-mammo</a></td>
+</tr>
+<tr>
+<td>MURA</td>
+<td>MSK X-ray / 7 regions</td>
+<td>6-reader test-set label vector</td>
+<td>14,863 studies</td>
+<td>Open (Stanford AIMI)</td>
+<td><a href="datasets/mura.html">mura</a></td>
+</tr>
+<tr>
+<td>BraTS</td>
+<td>Brain MRI / glioma</td>
+<td>1–4 raters, inter-rater DSC 0.74–0.85</td>
+<td>Thousands</td>
+<td>Open (Synapse)</td>
+<td><a href="datasets/brats.html">brats</a></td>
+</tr>
+<tr>
+<td>Messidor-2</td>
+<td>Fundus / DR grading</td>
+<td>3-expert adjudication panel</td>
+<td>1,748 (Messidor-2)</td>
+<td>Open (registration)</td>
+<td><a href="datasets/messidor-2.html">messidor-2</a></td>
+</tr>
+<tr>
+<td>OAI</td>
+<td>Knee X-ray + 3T MRI / OA</td>
+<td>2 readers + arbitration</td>
+<td>4,796 participants</td>
+<td>Open (DUA)</td>
+<td><a href="datasets/oai.html">oai</a></td>
+</tr>
+<tr>
+<td>MIDRC / RICORD</td>
+<td>CXR (+CT) / COVID severity</td>
+<td>3 physicians/image</td>
+<td>Tens of thousands</td>
+<td>Open (DUA)</td>
+<td><a href="datasets/midrc-ricord.html">midrc-ricord</a></td>
+</tr>
+<tr>
+<td>PI-CAI</td>
+<td>Prostate mpMRI / csPCa</td>
+<td>Indirect (PI-RADS vs histology)</td>
+<td>10,000+ exams</td>
+<td>Open (DUA)</td>
+<td><a href="datasets/pi-cai.html">pi-cai</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Tier C — Adjacent / partial signal</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Modality / anatomy</th>
+<th>Why adjacent</th>
+<th>Size</th>
+<th>Access</th>
+<th>Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REFLACX</td>
+<td>CXR / eye-tracking + reports</td>
+<td>Behavioral (gaze) proxy; 5 readers</td>
+<td>2,616 CXRs</td>
+<td>Open (PhysioNet)</td>
+<td><a href="datasets/reflacx.html">reflacx</a></td>
+</tr>
+<tr>
+<td>EGD-CXR</td>
+<td>CXR / eye-tracking + dictation</td>
+<td>Single-reader gaze proxy</td>
+<td>1,083 CXRs</td>
+<td>Open (PhysioNet)</td>
+<td><a href="datasets/egd-cxr.html">egd-cxr</a></td>
+</tr>
+<tr>
+<td>FG-CXR</td>
+<td>CXR / gaze + report captions</td>
+<td>Fine-grained gaze/diagnosis alignment</td>
+<td>n/a</td>
+<td>Per paper (verify)</td>
+<td><a href="datasets/fg-cxr.html">fg-cxr</a></td>
+</tr>
+<tr>
+<td>NLST</td>
+<td>LDCT / lung screening</td>
+<td>Derivable missed-on-prior subset only</td>
+<td>~54k participants</td>
+<td>Open (DUA)</td>
+<td><a href="datasets/nlst.html">nlst</a></td>
+</tr>
+<tr>
+<td>SIIM-ACR Pneumothorax</td>
+<td>CXR / pneumothorax</td>
+<td>No subtlety label; difficulty inferred</td>
+<td>12,047 images</td>
+<td>Open (Kaggle)</td>
+<td><a href="datasets/siim-acr-pneumothorax.html">siim-acr-pneumothorax</a></td>
+</tr>
+<tr>
+<td>BCS-DBT</td>
+<td>DBT / breast</td>
+<td>No perceptibility annotation</td>
+<td>22,032 volumes</td>
+<td>Open (TCIA)</td>
+<td><a href="datasets/bcs-dbt.html">bcs-dbt</a></td>
+</tr>
+<tr>
+<td>EMBED</td>
+<td>FFDM + DBT / breast</td>
+<td>No surfaced conspicuity field (verify schema)</td>
+<td>3.4M images</td>
+<td>AWS Open + DUA</td>
+<td><a href="datasets/embed.html">embed</a></td>
+</tr>
+<tr>
+<td>INbreast</td>
+<td>FFDM / breast</td>
+<td>Small, no subtlety axis</td>
+<td>410 images</td>
+<td>Restricted</td>
+<td><a href="datasets/inbreast.html">inbreast</a></td>
+</tr>
+<tr>
+<td>PadChest</td>
+<td>CXR / 174 findings</td>
+<td>Binary presence/absence</td>
+<td>160k+ images</td>
+<td>Open (registration)</td>
+<td><a href="datasets/padchest.html">padchest</a></td>
+</tr>
+<tr>
+<td>CheXpert</td>
+<td>CXR / 14 observations</td>
+<td>Labeler uncertainty (upstream of perceptibility)</td>
+<td>224,316 images</td>
+<td>Open (Stanford AIMI)</td>
+<td><a href="datasets/chexpert.html">chexpert</a></td>
+</tr>
+<tr>
+<td>NIH ChestX-Ray14</td>
+<td>CXR / 14 findings</td>
+<td>No subtlety axis; label-quality critiqued</td>
+<td>~112k images</td>
+<td>Open (NIH)</td>
+<td><a href="datasets/nih-chestxray14.html">nih-chestxray14</a></td>
+</tr>
+<tr>
+<td>ISBI/MS multi-rater</td>
+<td>Brain MRI / MS lesions</td>
+<td>Multi-rater MR variability</td>
+<td>n/a</td>
+<td>Per paper</td>
+<td><a href="datasets/isbi-ms-multirater.html">isbi-ms-multirater</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2>At-a-glance counts</h2>
+<ul>
+  <li><strong>Tier A (direct label):</strong> 5 — LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM/OMI-DB</li>
+  <li><strong>Tier A/B hybrid:</strong> 1 — CheXthought</li>
+  <li><strong>Tier B (difficulty proxy):</strong> 8 — VinDr-CXR, VinDr-Mammo, MURA, BraTS, Messidor-2, OAI, MIDRC/RICORD, PI-CAI</li>
+  <li><strong>Tier C (adjacent):</strong> 12 — REFLACX, EGD-CXR, FG-CXR, NLST, SIIM-ACR Pneumothorax, BCS-DBT, EMBED, INbreast, PadChest, CheXpert, NIH ChestX-Ray14, ISBI/MS multi-rater</li>
+  <li><strong>Total surveyed:</strong> 26</li>
+</ul>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

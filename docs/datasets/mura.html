@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MURA — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>MURA</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (test-set only)</li>
+  <li><strong>Modality / anatomy:</strong> Plain-film MSK X-rays / 7 anatomic regions (elbow, finger, forearm, hand, humerus, shoulder, wrist)</li>
+  <li><strong>Finding type:</strong> Normal vs abnormal MSK</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No severity/subtlety axis. Binary normal vs abnormal; the 6-rater test-set label vector supports disagreement analysis.</p>
+<h2>Label provenance</h2>
+<p>14,863 studies, normal vs abnormal labels. Test set (207 studies) labeled by <strong>6 board-certified Stanford radiologists</strong> with majority-of-3 gold standard, leaving the full 6-rater label vector available for disagreement analysis.</p>
+<h2>Size</h2>
+<p>14,863 studies / ~40k images.</p>
+<h2>Access / licensing</h2>
+<p>Open via Stanford AIMI / MURA competition page. <a href="https://stanfordmlgroup.github.io/competitions/mura/">https://stanfordmlgroup.github.io/competitions/mura/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Multi-reader signal is only on the 207-study test set, not training.</li>
+  <li>Binary (normal/abnormal), no severity/subtlety axis.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Test-set only — useful for benchmarking difficulty in the MSK domain where subtlety data is otherwise scarce.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

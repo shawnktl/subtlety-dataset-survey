@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messidor / Messidor-2 — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>Messidor / Messidor-2</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy)</li>
+  <li><strong>Modality / anatomy:</strong> Color fundus photography / diabetic retinopathy grading</li>
+  <li><strong>Finding type:</strong> DR lesions (microaneurysms, exudates), ordinal 5-class grading</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field; disagreement frequency during adjudication is the difficulty signal.</p>
+<h2>Label provenance</h2>
+<p>Messidor-2 adjudicated by <strong>panel of 3 experts</strong> with re-examination until consensus. Kaggle EyePACS competition data is single-rater (much noisier).</p>
+<h2>Size</h2>
+<p>Messidor 1,200; Messidor-2 1,748; EyePACS ~88k.</p>
+<h2>Access / licensing</h2>
+<p>Open with registration. <a href="https://www.adcis.net/en/third-party/messidor/">https://www.adcis.net/en/third-party/messidor/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Not radiology in the chest/abdominal sense, but a classic &quot;subtle finding&quot; domain.</li>
+  <li>Ordinal 5-class grading.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Multi-rater adjudication preserves disagreement signal indirectly.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
