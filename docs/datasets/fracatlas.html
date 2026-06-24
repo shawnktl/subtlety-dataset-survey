@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FracAtlas — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>FracAtlas</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically missable fractures; adjudicated consensus)</li>
+  <li><strong>Modality / anatomy:</strong> Plain X-ray / MSK — hand, leg, hip, shoulder</li>
+  <li><strong>Finding type:</strong> Bone fracture (classification, bounding box, segmentation mask)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Includes non-displaced/hairline fractures that are missable on plain film, and the annotation pipeline routed radiologist disagreements to an orthopedic surgeon — indicating real reader uncertainty on a subset (though that disagreement is adjudicated away, not preserved per-rater).</p>
+<h2>Label provenance</h2>
+<p>2 radiologists labeled independently; disagreements adjudicated by an orthopedic surgeon (consensus-style). makesense.ai.</p>
+<h2>Size</h2>
+<p>4,083 images; 717 fractured; 922 fracture instances (hand 1,538 imgs/437 fx, leg 2,272/263, hip 338/63, shoulder 349/63).</p>
+<h2>Access / licensing</h2>
+<p>Public, CC BY 4.0, no registration. Figshare DOI 10.6084/m9.figshare.22363012 (~323 MB). COCO/YOLO/Pascal VOC. Paper: <a href="https://www.nature.com/articles/s41597-023-02432-4">https://www.nature.com/articles/s41597-023-02432-4</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Multi-hospital (Bangladesh); minority fracture-positive (717/4,083).</li>
+  <li>Per-rater disagreement not preserved (adjudicated consensus); no subtlety grade.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A general MSK-fracture set spanning multiple body regions, with an annotation workflow that explicitly surfaced reader disagreement (escalated to a surgeon) — the disagreement isn&#x27;t released, but the adjudication trail marks where fractures were perceptually hard. Complements GRAZPEDWRI-DX (pediatric wrist) and RibFrac (ribs) for fracture coverage.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

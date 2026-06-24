@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VerSe (VerSe&#x27;19 Fracture-Grading layer) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>VerSe (VerSe&#x27;19 Fracture-Grading layer)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — ordinal subtlety axis (Genant grade) + documented multi-reader re-grading</li>
+  <li><strong>Modality / anatomy:</strong> Multi-detector CT / whole spine</li>
+  <li><strong>Finding type:</strong> Osteoporotic / compression vertebral fractures with Genant semiquantitative grade (0–3) + morphologic type (wedge / biconcave / crush)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>The <strong>Genant grade is itself an ordinal subtlety axis</strong>: mild (grade 1, 20–25% height loss) fractures sit right at the perceptibility threshold, and osteoporotic vertebral compression fractures are the textbook &quot;missed on CT&quot; finding. The grading task is documented as high-disagreement, and a published <strong>8-rater study (3 students / 3 residents / 2 attendings) re-graded this exact corpus</strong> with Genant — direct reader-disagreement evidence on the same public images.</p>
+<h2>Label provenance</h2>
+<p>Two neuroradiologists (5 and 17 yr) performed <strong>consensus</strong> grading in the base release. The released grades are consensus (not per-rater); the multi-rater signal lives in the downstream re-grading study (Eur Radiol, DOI 10.1007/s00330-026-12393-y).</p>
+<h2>Size</h2>
+<p>VerSe&#x27;19: 160 CT series / 141 patients; 1,725 vertebrae graded (≈289 fracture-positive). (The broader VerSe segmentation benchmark spans 374 scans / 355 patients across VerSe&#x27;19 + VerSe&#x27;20.)</p>
+<h2>Access / licensing</h2>
+<p>Fully public, CC BY-SA 4.0. OSF (VerSe&#x27;19): <a href="https://osf.io/nqjyw/">https://osf.io/nqjyw/</a> ; GitHub: <a href="https://github.com/anjany/verse">https://github.com/anjany/verse</a> ; grading paper: Löffler et al., <em>Radiology: AI</em> 2020, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8082364/">https://pmc.ncbi.nlm.nih.gov/articles/PMC8082364/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Released grades are consensus-only; per-rater disagreement is in the separate re-grading study, not in the released data.</li>
+  <li>Fracture-positive vertebrae are a minority (≈289/1,725).</li>
+  <li>Genant grades ship with <strong>VerSe&#x27;19</strong> specifically; whether VerSe&#x27;20 includes grading is <code>[VERIFY]</code> (grading appears to be a VerSe&#x27;19 addition only).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The only public spine dataset with an explicit ordinal severity/subtlety grade (Genant) on a canonically missed finding, plus a published multi-reader re-grading on the identical images — a ready-made difficulty + disagreement pairing for vertebral fractures.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

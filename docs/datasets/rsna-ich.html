@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSNA 2019 Intracranial Hemorrhage Detection (RSNA ICH) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>RSNA 2019 Intracranial Hemorrhage Detection (RSNA ICH)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding + large multi-expert effort; reconciled single label)</li>
+  <li><strong>Modality / anatomy:</strong> Non-contrast head CT (NCCT) / brain</li>
+  <li><strong>Finding type:</strong> Acute intracranial hemorrhage + 5 subtypes (EDH, IPH, IVH, SAH, SDH); slice-level binary labels</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Small/early ICH (especially thin SDH, subtle SAH) is canonically easily missed on NCCT, and the construction paper explicitly discusses reader disagreement on subtle hemorrhages as a labeling challenge — but the released labels are reconciled to a single label per slice (no per-rater disagreement matrix published).</p>
+<h2>Label provenance</h2>
+<p>~60 volunteer radiologists (American Society of Neuroradiology), each blind to other readers. Most exams received a single expert read with adjudication/multi-read on a subset; released labels are the reconciled ground truth (not per-rater). <code>[VERIFY]</code> exact per-exam reader count (most exams single-read, unlike CQ500&#x27;s 3-per-exam).</p>
+<h2>Size</h2>
+<p>25,272 CT examinations (~870,301 slices).</p>
+<h2>Access / licensing</h2>
+<p>Open. Kaggle competition data + AWS Registry of Open Data; research/non-commercial competition terms. <a href="https://www.kaggle.com/c/rsna-intracranial-hemorrhage-detection">https://www.kaggle.com/c/rsna-intracranial-hemorrhage-detection</a> ; <a href="https://registry.opendata.aws/rsna-intracranial-hemorrhage-detection/">https://registry.opendata.aws/rsna-intracranial-hemorrhage-detection/</a> ; paper: <a href="https://pubs.rsna.org/doi/10.1148/ryai.2020190211">https://pubs.rsna.org/doi/10.1148/ryai.2020190211</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Slice-level subtype labels only, no segmentation masks.</li>
+  <li>Per-rater labels not released (no disagreement signal preserved).</li>
+  <li>Test-set labels withheld.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The largest public ICH corpus and the standard head-CT hemorrhage benchmark. For the detectability framing it provides scale on a canonically subtle finding, but — unlike CQ500 — its labels are reconciled, so it supplies a difficulty <em>region</em> rather than a disagreement <em>signal</em>.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

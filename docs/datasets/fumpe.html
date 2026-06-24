@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUMPE — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>FUMPE</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding; no explicit perceptibility label)</li>
+  <li><strong>Modality / anatomy:</strong> CT pulmonary angiography (CTPA) / pulmonary arteries</li>
+  <li><strong>Finding type:</strong> Pulmonary embolism (segmented clot regions)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. 2,304 of 3,438 annotated PE regions (67%) are peripheral/subsegmental — the canonically subtle, frequently-missed location. Authors frame it as a challenging CAD benchmark; includes per-case Qanadli obstruction scores (0–31), which are severity, not perceptibility.</p>
+<h2>Label provenance</h2>
+<p>Two radiologists — a primary delineated PE in every slice; the senior department head re-examined and approved all segmentations (review/approval, not independent dual annotation with formal arbitration).</p>
+<h2>Size</h2>
+<p>35 subjects; 8,792 slices; 3,438 PE ROIs (1,134 main / 2,304 peripheral).</p>
+<h2>Access / licensing</h2>
+<p>Public, open. Figshare, CC BY 4.0: <a href="https://doi.org/10.6084/m9.figshare.c.4107803">https://doi.org/10.6084/m9.figshare.c.4107803</a> (Kaggle mirror exists). DICOM + MAT masks. Paper: <a href="https://www.nature.com/articles/sdata2018180">https://www.nature.com/articles/sdata2018180</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Small (35 patients); all PE-positive (no negative controls).</li>
+  <li>One-delineates / one-approves, so reader disagreement is not quantified.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A segmentation-level PE set heavily weighted toward subsegmental clots — the subtle end of the PE spectrum — complementing RSNA-PE&#x27;s scale and QA flags with voxel-level masks, though without an explicit perceptibility label.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

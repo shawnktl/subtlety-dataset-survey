@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSNA 2022 Cervical Spine Fracture Detection — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>RSNA 2022 Cervical Spine Fracture Detection</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically missed finding / detection challenge)</li>
+  <li><strong>Modality / anatomy:</strong> CT / cervical spine (C1–C7)</li>
+  <li><strong>Finding type:</strong> Cervical spine fractures (presence + vertebral level + location)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Cervical spine fractures on CT are canonically high-stakes and easily missed in trauma; the dataset is a fracture-detection challenge. Difficulty is inherent to the finding, not a labeled perceptibility axis.</p>
+<h2>Label provenance</h2>
+<p>Spine specialists from ASNR and ASSR. Study-level labels for all cases (fractured level from the original report, or &quot;no fracture&quot;), plus image-level bounding boxes on ~16% of positive cases. <code>[VERIFY]</code> exact per-case rater count / consensus protocol.</p>
+<h2>Size</h2>
+<p>Full dataset 3,112 annotated CT studies (public training subset 2,019; test 1,093 with 847 fractures); &gt;1,400 fractured studies; 12 institutions / 9 countries.</p>
+<h2>Access / licensing</h2>
+<p>Public, non-commercial (research/education); no redistribution / re-identification. Kaggle: <a href="https://www.kaggle.com/competitions/rsna-2022-cervical-spine-fracture-detection">https://www.kaggle.com/competitions/rsna-2022-cervical-spine-fracture-detection</a> ; AWS Open Data; RSNA MIRA. Paper: <a href="https://pubs.rsna.org/doi/full/10.1148/ryai.230034">https://pubs.rsna.org/doi/full/10.1148/ryai.230034</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Cite &quot;2,019 vs 3,112&quot; carefully (public-train vs full).</li>
+  <li>Only ~16% of positives have boxes.</li>
+  <li>No subtlety grade; per-rater labels not exposed.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A large multi-institution benchmark for a canonically missed trauma finding — useful for the &quot;easily-overlooked high-stakes finding&quot; framing, though it offers a difficulty region rather than an explicit perceptibility label (for graded spine subtlety, see VerSe&#x27;s Genant layer).</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

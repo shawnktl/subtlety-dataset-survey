@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AISD (Acute Ischemic Stroke Dataset) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>AISD (Acute Ischemic Stroke Dataset)</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label</li>
+  <li><strong>Modality / anatomy:</strong> Non-contrast CT (NCCT) / brain — acute ischemic infarct</li>
+  <li><strong>Finding type:</strong> Acute ischemic infarct (segmentation on NCCT)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Carries <strong>explicit per-lesion conspicuity labels</strong> baked into the mask categories: remote infarct (1), <strong>clear acute infarct (2)</strong>, <strong>blurred acute infarct (3)</strong>, and <strong>invisible acute infarct (4)</strong> — an explicit detectability stratification, with paired DWI-MRI (≤24 h) as the reference standard. Early ischemic change on NCCT is canonically the hardest finding in stroke imaging, and this is one of the very few public datasets that operationalizes that with a graded &quot;how perceptible is it on the image you&#x27;re given&quot; label.</p>
+<h2>Label provenance</h2>
+<p>Manually contoured on NCCT by a physician using the same-window DWI-MRI as reference; senior physician double-review for QA. Single annotator + senior QA (not independent multi-rater).</p>
+<h2>Size</h2>
+<p>397 NCCT scans (345 train/val / 52 test), each paired with DWI within 24 h.</p>
+<h2>Access / licensing</h2>
+<p>Free for academic / non-commercial use. GitHub repo with Google Drive + Baidu downloads: <a href="https://github.com/GriffinLiang/AISD">https://github.com/GriffinLiang/AISD</a> (mirror: <a href="https://github.com/radreports/AISD-ischemic-stroke-">https://github.com/radreports/AISD-ischemic-stroke-</a>). Paper: Liang et al., &quot;Symmetry-Enhanced Attention Network for Acute Ischemic Infarct Segmentation with Non-Contrast CT,&quot; MICCAI 2021.</p>
+<h2>Caveats</h2>
+<ul>
+  <li>The clear/blurred/invisible conspicuity labels are the explicit perceptibility signal — but they are single-annotator judgments (DWI-anchored), not multi-reader consensus; inter-rater disagreement is not provided.</li>
+  <li>Download partly via Baidu (access friction outside China).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The closest analogue to LIDC&#x27;s 1–5 subtlety scale outside the chest: an explicit graded conspicuity label (clear → blurred → invisible) on a canonically subtle finding (early ischemic change), with a DWI ground truth fixing what is <em>actually</em> there. The single best stroke fit for the detectability framing.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

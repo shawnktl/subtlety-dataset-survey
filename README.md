@@ -1,6 +1,6 @@
 # Subtlety / Perceptibility Dataset Survey
 
-A browsable reference of 26 public radiology datasets that annotate finding **subtlety / perceptibility / conspicuity** — or carry a usable difficulty proxy (reader disagreement, multi-rater designs, eye-tracking signal). Built from a completed survey spawned by `nodule-detectability`.
+A browsable reference of 59 public radiology datasets that carry a finding **subtlety / perceptibility / conspicuity** signal — read broadly: explicit subtlety/conspicuity labels, reader-disagreement / multi-rater designs, eye-tracking/gaze signal, difficulty-stratified subsets, or a *canonically subtle finding* (early ischemic change, small ICH, subtle fractures, small PE, PDAC). Built from a completed survey spawned by `nodule-detectability`, then widened on 2026-06-24 from the original chest/breast-dominated 26 to cover neuro (esp. stroke), abdomen/body, and other under-represented regions.
 
 ## Browse it
 
@@ -19,9 +19,9 @@ The site is a static HTML rendering of the markdown in this repo — same conten
 
 ## Tiers
 
-- **A** — direct subtlety/conspicuity label (LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM).
-- **B** — reader-disagreement / multi-rater difficulty proxy (+ CheXthought as an A/B hybrid).
-- **C** — adjacent / partial signal.
+- **A** (8) — direct subtlety/conspicuity/difficulty label (LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM, AISD, CPAISD, RSNA-PE).
+- **B** (20) — reader-disagreement / multi-rater difficulty proxy (+ CheXthought as an A/B hybrid). Now spans neuro (CQ500, MSSEG-2016, WMH, QUBIQ, ISLES'22/'15), abdomen (KiTS21, CURVAS, CURVAS-PDACVI), spine (VerSe/Genant), and cardiac (CAMUS).
+- **C** (30) — adjacent / partial signal (canonically-subtle findings, detection challenges, gaze).
 
 ## Rebuilding the site
 

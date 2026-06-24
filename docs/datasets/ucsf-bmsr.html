@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UCSF-BMSR (Brain Metastases Stereotactic Radiosurgery) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>UCSF-BMSR (Brain Metastases Stereotactic Radiosurgery)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle small-lesion finding; consensus labels)</li>
+  <li><strong>Modality / anatomy:</strong> Brain MRI (T1 post-contrast, T1 pre-contrast, FLAIR, subtraction) / brain — metastases</li>
+  <li><strong>Finding type:</strong> Enhancing brain metastases (small-lesion detection)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. A large-scale small-met detection corpus — <strong>5,136 annotated brain metastases</strong>, many sub-centimeter, the canonically hard &quot;don&#x27;t-miss-the-tiny-one&quot; regime. It includes subtraction images precisely because subtle enhancing mets are hard to perceive. No multi-rater disagreement released.</p>
+<h2>Label provenance</h2>
+<p>Expert voxelwise annotations of enhancing mets (UCSF); consensus/expert, not per-rater.</p>
+<h2>Size</h2>
+<p>560 brain MRIs from 412 patients; 5,136 metastases.</p>
+<h2>Access / licensing</h2>
+<p><strong>Public and freely available for non-commercial use; no DUA gating reported.</strong> Mirrored on AWS Registry of Open Data: <a href="https://registry.opendata.aws/ucsf-bmsr/">https://registry.opendata.aws/ucsf-bmsr/</a> . Paper: Rudie et al., <em>Radiology: AI</em> 2024, <a href="https://pubs.rsna.org/doi/full/10.1148/ryai.230126">https://pubs.rsna.org/doi/full/10.1148/ryai.230126</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Single-institution; consensus annotation (no per-rater masks).</li>
+  <li>Non-commercial.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The largest openly-mirrored small-brain-metastasis corpus — the inclusion of subtraction sequences is itself an acknowledgement that the finding sits at the perceptual threshold. A scale complement to BraTS-METS for studying tiny-lesion detectability on MR.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

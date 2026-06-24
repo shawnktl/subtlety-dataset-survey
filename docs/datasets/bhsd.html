@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BHSD (Brain Hemorrhage Segmentation Dataset) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>BHSD (Brain Hemorrhage Segmentation Dataset)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding; voxel-level multi-class ICH)</li>
+  <li><strong>Modality / anatomy:</strong> 3D non-contrast CT (NCCT) / brain</li>
+  <li><strong>Finding type:</strong> Multi-class ICH segmentation (5 subtypes: EDH, IPH, IVH, SAH, SDH)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field and no preserved per-rater disagreement. Voxel-level multi-class ICH; small subtype lesions (thin SDH, subtle SAH) are canonically hard to delineate — qualifies on the canonically-subtle-finding axis only.</p>
+<h2>Label provenance</h2>
+<p>Expert pixel-level annotations on the 192-volume subset; slice-level labels on the larger set. <code>[VERIFY]</code> exact rater count / consensus protocol (thin in the paper).</p>
+<h2>Size</h2>
+<p>192 volumes with voxel-level annotations + 2,200 volumes with slice-level annotations (~2,192 3D CT scans, 24–40 slices each, 512×512).</p>
+<h2>Access / licensing</h2>
+<p>Open via GitHub: <a href="https://github.com/White65534/BHSD">https://github.com/White65534/BHSD</a> . Paper: BHSD, MLMI 2023, <a href="https://arxiv.org/abs/2308.11298">https://arxiv.org/abs/2308.11298</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Annotation-protocol / rater details thin <code>[VERIFY]</code>.</li>
+  <li>Source images drawn partly from existing public ICH data.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>One of the few datasets offering <em>subtype-resolved voxel-level</em> ICH masks, letting difficulty be examined per hemorrhage subtype (e.g. subtle SAH vs obvious IPH) — a finer-grained handle on hemorrhage detectability than slice-level sets, though without an explicit perceptibility label.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

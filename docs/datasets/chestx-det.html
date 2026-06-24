@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChestX-Det — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ChestX-Det</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (blinded double-read + adjudication)</li>
+  <li><strong>Modality / anatomy:</strong> Frontal CXR (subset of NIH ChestX-ray14) / thorax</li>
+  <li><strong>Finding type:</strong> Instance-level boxes + segmentation for 10 thoracic abnormalities (Atelectasis, Calcification, Consolidation, Effusion, Emphysema, Fibrosis, Fracture, Mass, Nodule, Pneumothorax)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but a genuine multi-reader-difficulty design: <strong>two radiologists independently and mutually-blind annotated each image, with a third (most senior) adjudicating</strong>, explicitly capturing and resolving inter-reader localization disagreement. Several of the 10 categories (pneumothorax, small nodules, fractures) are canonically subtle, now with instance-level localization.</p>
+<h2>Label provenance</h2>
+<p>3 board-certified radiologists; blinded double-read + 1-reader adjudication. Output is adjudicated consensus (raw per-rater files not clearly released <code>[VERIFY]</code>).</p>
+<h2>Size</h2>
+<p>3,543 images (ChestX-Det10), drawn from NIH ChestX-ray14. An extended release reports ~3,578 images / 13 categories <code>[VERIFY exact count vs the 10-category version]</code>.</p>
+<h2>Access / licensing</h2>
+<p>Public. GitHub: <a href="https://github.com/Deepwise-AILab/ChestX-Det10-Dataset">https://github.com/Deepwise-AILab/ChestX-Det10-Dataset</a> (Kaggle mirror). Underlying images from NIH ChestX-ray14 (already covered); ChestX-Det adds the new instance annotations. Paper: <a href="https://arxiv.org/pdf/2006.10550">https://arxiv.org/pdf/2006.10550</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Images are a subset of an already-covered dataset (NIH ChestX-Ray14); the novelty is the adjudicated instance annotations, not new images.</li>
+  <li>Per-rater raw labels not clearly published <code>[VERIFY]</code>.</li>
+  <li>Small (~3.5k).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Adds instance-level (box + mask) localization with a blinded-double-read + adjudication protocol on top of NIH ChestX-ray14 — turning a label-quality-critiqued classification set into a localization set with documented inter-reader disagreement on subtle findings.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

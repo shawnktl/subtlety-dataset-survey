@@ -42,4 +42,62 @@ Links / citations for each dataset's source page, carried forward from the surve
 
 ## Adjacent references cited in the gaps analysis
 
-- **RSNA PE:** https://pubs.rsna.org/doi/full/10.1148/ryai.2021200254
+- **RSNA PE (original gaps note):** https://pubs.rsna.org/doi/full/10.1148/ryai.2021200254 — now a full Tier A dataset page (see below).
+
+---
+
+## 2026-06-24 wider-net sweep — new dataset sources
+
+### Neuro — ischemic stroke
+
+- **AISD:** https://github.com/GriffinLiang/AISD ; Liang et al., MICCAI 2021 (Symmetry-Enhanced Attention Network for Acute Ischemic Infarct Segmentation with NCCT)
+- **CPAISD:** https://zenodo.org/records/10892316 ; Tuchinov et al., arXiv:2404.02518 ; code https://github.com/sb-ai-lab/early_hyperacute_stroke_dataset
+- **ISLES 2022:** https://isles22.grand-challenge.org/ ; Hernandez Petzsche et al., Sci Data 2022 https://www.nature.com/articles/s41597-022-01875-5 ; Zenodo DOI 10.5281/zenodo.7153326
+- **ISLES 2015 (SISS):** https://www.isles-challenge.org/ISLES2015/ ; Maier et al., Med Image Anal 2017 https://pmc.ncbi.nlm.nih.gov/articles/PMC5099118/ ; Zenodo bundle https://zenodo.org/records/17736412
+- **ISLES 2018:** http://www.isles-challenge.org/ISLES2018/ ; Hakim et al., Stroke 2021 https://pmc.ncbi.nlm.nih.gov/articles/PMC8240494/ ; Zenodo https://zenodo.org/records/17736412
+- **ATLAS v2.0:** https://atlas.grand-challenge.org/ ; Liew et al., Sci Data 2022 https://pmc.ncbi.nlm.nih.gov/articles/PMC9203460/ ; ICPSR DOI 10.3886/ICPSR36684.v4
+
+### Neuro — hemorrhage / aneurysm
+
+- **CQ500:** http://headctstudy.qure.ai/dataset ; Chilamkurthy et al., The Lancet 2018 https://arxiv.org/abs/1803.05854
+- **RSNA ICH:** https://www.kaggle.com/c/rsna-intracranial-hemorrhage-detection ; https://registry.opendata.aws/rsna-intracranial-hemorrhage-detection/ ; Flanders et al. https://pubs.rsna.org/doi/10.1148/ryai.2020190211
+- **PhysioNet CT-ICH:** https://physionet.org/content/ct-ich/ (Hssayeni et al.)
+- **BHSD:** https://github.com/White65534/BHSD ; arXiv:2308.11298 (MLMI 2023)
+- **ADAM:** https://adam.isi.uu.nl/ ; Timmins et al., NeuroImage 2021 https://www.sciencedirect.com/science/article/pii/S1053811921004936
+- **CADA:** https://cada.grand-challenge.org/ ; Med Image Anal 2021 https://www.sciencedirect.com/science/article/abs/pii/S1361841521003789
+
+### Neuro — WMH / MS / mets
+
+- **MSSEG-2016:** Commowick et al., NeuroImage 2021 https://www.sciencedirect.com/science/article/pii/S1053811921008624 (Sci Rep 2018 https://www.nature.com/articles/s41598-018-31911-7) ; data via Shanoir (DUA)
+- **WMH Challenge (2017):** https://wmh.isi.uu.nl/ ; data DOI 10.34894/AECRSD ; Kuijf et al., IEEE TMI 2019 https://pubmed.ncbi.nlm.nih.gov/30908194/
+- **QUBIQ:** https://qubiq21.grand-challenge.org/ ; Menze et al., arXiv:2405.18435
+- **BraTS-METS (2023):** Moawad et al., arXiv:2306.00838 ; data on Synapse
+- **UCSF-BMSR:** https://registry.opendata.aws/ucsf-bmsr/ ; Rudie et al., Radiology: AI 2024 https://pubs.rsna.org/doi/full/10.1148/ryai.230126
+- **MS3SEG:** Bashiri et al., Sci Data 2026 https://www.nature.com/articles/s41597-026-07184-5 ; figshare DOI 10.6084/m9.figshare.30393475 ; code https://github.com/Mahdi-Bashiri/MS3SEG
+
+### Abdomen / body
+
+- **KiTS21:** https://kits-challenge.org/kits21/ ; arXiv:2307.01984 ; code https://github.com/neheller/kits21
+- **CURVAS:** https://www.nature.com/articles/s41597-025-06473-9 ; challenge curvas.grand-challenge.org ; results arXiv:2505.08685
+- **CURVAS-PDACVI:** https://zenodo.org/records/15401568 ; https://sycaimedical.com/curvaspdacvi/
+- **PANORAMA:** https://panorama.grand-challenge.org/ ; data https://zenodo.org/records/13715870 ; method arXiv:2503.10068
+- **LiTS:** Med Image Anal 2023 https://www.sciencedirect.com/science/article/pii/S1361841522003085
+
+### Thorax — PE / cardiac
+
+- **RSNA-PE (RSPECT):** https://pubs.rsna.org/doi/full/10.1148/ryai.2021200254 ; augmentation https://pubs.rsna.org/doi/full/10.1148/ryai.230001 ; https://registry.opendata.aws/rsna-pulmonary-embolism-detection/
+- **FUMPE:** https://www.nature.com/articles/sdata2018180 ; figshare DOI 10.6084/m9.figshare.c.4107803
+- **CAMUS:** https://www.creatis.insa-lyon.fr/Challenge/camus/ ; Leclerc et al., IEEE TMI 2019 (doi:10.1109/TMI.2019.2900516)
+- **ChestX-Det:** https://github.com/Deepwise-AILab/ChestX-Det10-Dataset ; arXiv:2006.10550
+
+### MSK / spine
+
+- **VerSe (Genant layer):** https://github.com/anjany/verse ; OSF https://osf.io/nqjyw/ ; Löffler et al., Radiology: AI 2020 https://pmc.ncbi.nlm.nih.gov/articles/PMC8082364/
+- **RSNA 2022 Cervical Spine Fracture:** https://www.kaggle.com/competitions/rsna-2022-cervical-spine-fracture-detection ; https://pubs.rsna.org/doi/full/10.1148/ryai.230034
+- **RibFrac:** https://ribfrac.grand-challenge.org/ ; arXiv:2402.09372 ; Zenodo https://zenodo.org/records/3893508
+- **GRAZPEDWRI-DX:** https://www.nature.com/articles/s41597-022-01328-z ; figshare DOI 10.6084/m9.figshare.14825193
+- **FracAtlas:** https://www.nature.com/articles/s41597-023-02432-4 ; figshare DOI 10.6084/m9.figshare.22363012
+
+### Process-level (gaze)
+
+- **CT-ScanGaze:** Pham et al., ICCV 2025 arXiv:2507.12591 ; data huggingface.co/datasets/phamtrongthang/CT-ScanGaze ; code https://github.com/UARK-AICV/CTScanGaze

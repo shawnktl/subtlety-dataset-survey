@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CQ500 (qure.ai) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CQ500 (qure.ai)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (per-rater reads released)</li>
+  <li><strong>Modality / anatomy:</strong> Non-contrast head CT (NCCT) / brain + skull</li>
+  <li><strong>Finding type:</strong> Intracranial hemorrhage (+ subtypes IPH/IVH/SDH/EDH/SAH), calvarial fracture, midline shift, mass effect</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but the <strong>cleanest genuine multi-reader design in the neuro set</strong>: three radiologists (8, 12, and 20 years&#x27; experience) independently read <strong>every</strong> scan, the majority vote is the reference standard, and the <strong>individual per-reader reads are released in the dataset&#x27;s <code>reads.csv</code></strong>. Inter-reader disagreement is therefore preserved and directly recoverable — a strong difficulty proxy on a region (small ICH, thin SDH, subtle SAH) where reads genuinely diverge.</p>
+<h2>Label provenance</h2>
+<p>3 independent radiologists per scan; both the per-rater reads and the majority-vote consensus are distributed.</p>
+<h2>Size</h2>
+<p>491 scans (batch B1 = 214, B2 = 277), 193,317 slices.</p>
+<h2>Access / licensing</h2>
+<p>Open, free. CC BY-NC-SA 4.0 (non-commercial). <a href="http://headctstudy.qure.ai/dataset">http://headctstudy.qure.ai/dataset</a> (mirror: <a href="https://www.kaggle.com/datasets/crawford/qureai-headct">https://www.kaggle.com/datasets/crawford/qureai-headct</a> ; Academic Torrents mirror exists). Paper: Chilamkurthy et al., <em>The Lancet</em> 2018, <a href="https://arxiv.org/abs/1803.05854">https://arxiv.org/abs/1803.05854</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Scan-level (not segmentation) labels.</li>
+  <li>Single institution (CARING, New Delhi).</li>
+  <li>Non-commercial license.</li>
+  <li>Selection enriched for abnormalities (not a screening-prevalence cohort).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The released per-reader reads make CQ500 a ready-made inter-reader-disagreement testbed for head CT — the neuro analogue of VinDr-CXR / MURA&#x27;s multi-rater label vectors. Disagreement among three experienced radiologists is the most direct difficulty signal available for small/subtle intracranial hemorrhage.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
