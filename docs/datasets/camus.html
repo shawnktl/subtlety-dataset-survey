@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMUS — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CAMUS</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (inter-/intra-observer fold) + explicit image-quality grade</li>
+  <li><strong>Modality / anatomy:</strong> 2D echocardiography / cardiac — LV endo/epicardium, myocardium, left atrium (apical 2- &amp; 4-chamber)</li>
+  <li><strong>Finding type:</strong> Chamber / myocardium segmentation + derived LV volumes / ejection fraction</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Two genuine signals: (1) an explicit <strong>image-quality grade</strong> (good / medium / poor; ~19% poor), with folds stratified by quality and EF — a direct difficulty axis; and (2) measured <strong>inter- and intra-observer variability</strong> — 1 cardiologist annotated all 500 patients, 2 additional cardiologists independently annotated a 50-patient fold (inter-observer LV Dice ~0.90, Hausdorff ~7.3 mm), and the same expert re-annotated for intra-observer. Endocardial border tracing is canonically subtle/ambiguous.</p>
+<h2>Label provenance</h2>
+<p>1 cardiologist (full set); 2 more on a 50-patient fold for inter-observer; same expert re-annotated for intra-observer. Per-rater contours preserved on the variability fold.</p>
+<h2>Size</h2>
+<p>500 patients × 2 views = 1,000 sequences; reference contours at end-diastole and end-systole.</p>
+<h2>Access / licensing</h2>
+<p>Public, free, registration. <a href="https://www.creatis.insa-lyon.fr/Challenge/camus/">https://www.creatis.insa-lyon.fr/Challenge/camus/</a> ; data: <a href="https://humanheart-project.creatis.insa-lyon.fr/database/">https://humanheart-project.creatis.insa-lyon.fr/database/</a> ; paper: Leclerc et al., <em>IEEE TMI</em> 2019, doi:10.1109/TMI.2019.2900516</p>
+<h2>Caveats</h2>
+<ul>
+  <li>The image-quality grade is one expert&#x27;s opinion <code>[VERIFY whether multi-rater]</code>.</li>
+  <li>Multi-rater contours only on the 50-patient fold, not all 500.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The strongest cardiac fit: an explicit per-image quality stratum <em>and</em> a preserved inter-/intra-observer-variability fold on a canonically ambiguous tracing task — both axes of the detectability framing (image difficulty + reader divergence) in echocardiography.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

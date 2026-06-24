@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PANORAMA (PDAC detection on CECT) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>PANORAMA (PDAC detection on CECT)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle / frequently-missed finding; reader study)</li>
+  <li><strong>Modality / anatomy:</strong> Portal-venous contrast-enhanced CT / pancreas</li>
+  <li><strong>Finding type:</strong> Pancreatic ductal adenocarcinoma (PDAC) detection + segmentation (6 PDAC-related structures)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field, but PDAC is the textbook subtle/missed abdominal cancer: CT sensitivity is only <strong>58–77% for ≤2 cm tumors</strong>, and in a missed-case series <strong>42% of missed PDACs were &lt;2 cm and 44% were isoattenuating</strong> (do not stand out from normal parenchyma). PANORAMA&#x27;s reader study directly benchmarks AI vs. abdominal radiologists, so detection difficulty is the explicit raison d&#x27;être.</p>
+<h2>Label provenance</h2>
+<p>Segmentation masks + clinical info; reference standard is histopathology and ≥3-year follow-up. Annotated by radiologists, with the public Pancreas-CT (TCIA) cohort as one source. Consensus / reference-standard labels — not per-rater released for the training set <code>[VERIFY]</code> whether any reader-study per-reader data is public.</p>
+<h2>Size</h2>
+<p>Public training/development set on Zenodo (records 13715870, 13742336, 11034011, 10999754); full study cohort &quot;over 1,500 cases&quot; multi-center.</p>
+<h2>Access / licensing</h2>
+<p>Open (public training set on Zenodo + TCIA wiki). <a href="https://panorama.grand-challenge.org/">https://panorama.grand-challenge.org/</a> ; data: <a href="https://zenodo.org/records/13715870">https://zenodo.org/records/13715870</a> ; method: <a href="https://arxiv.org/abs/2503.10068">https://arxiv.org/abs/2503.10068</a> . License CC BY 3.0 (TCIA) <code>[VERIFY Zenodo record license]</code>.</p>
+<h2>Caveats</h2>
+<ul>
+  <li>No per-lesion subtlety label and (for the training set) no preserved per-reader disagreement — qualifies on the <em>canonically-subtle-finding</em> axis (PDAC miss-rate), not on explicit perceptibility annotation.</li>
+  <li>See <strong>CURVAS-PDACVI</strong> for the multi-rater (5 per-rater masks) PDAC extension that reuses one PANORAMA annotation.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The reference public PDAC detection benchmark, anchored to a finding with hard, quantified miss-rate data — the abdominal poster child for &quot;the finding is subtle even to experts.&quot; Pairs with CURVAS-PDACVI when preserved per-rater disagreement is needed.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

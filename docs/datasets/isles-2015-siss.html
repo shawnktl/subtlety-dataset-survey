@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISLES 2015 (SISS) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ISLES 2015 (SISS)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (two independent ground-truth sets)</li>
+  <li><strong>Modality / anatomy:</strong> Multi-spectral MRI (T1w, T2w, DWI, FLAIR) / brain — sub-acute ischemic stroke lesion</li>
+  <li><strong>Finding type:</strong> Sub-acute ischemic infarct (segmentation)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but the SISS sub-challenge released <strong>two independent expert ground-truth segmentation sets</strong> (not merged into one consensus mask), so inter-rater disagreement is preserved in the data. Sub-acute infarcts are canonically subtle on any single sequence — defined only by concomitant signal across FLAIR + DWI — and the two-center origin adds scanner variability.</p>
+<h2>Label provenance</h2>
+<p>Manual segmentation by an experienced MD; two separate ground-truth sets provided per case.</p>
+<h2>Size</h2>
+<p>64 sub-acute cases (28 train / 36 test) for the SISS sub-challenge. (The SPES sub-challenge is a separate perfusion-estimation task.)</p>
+<h2>Access / licensing</h2>
+<p>Public via the challenge site and a Zenodo bundle of the 2015–2018 editions. <a href="https://www.isles-challenge.org/ISLES2015/">https://www.isles-challenge.org/ISLES2015/</a> ; Zenodo bundle: <a href="https://zenodo.org/records/17736412">https://zenodo.org/records/17736412</a> ; paper: Maier et al., <em>Medical Image Analysis</em> 2017, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5099118/">https://pmc.ncbi.nlm.nih.gov/articles/PMC5099118/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>The &quot;two ground-truth sets&quot; are the real multi-rater signal, but per-rater voxel-level disagreement is not published as a difficulty score — disagreement is inferable, not labeled. <code>[VERIFY]</code> whether both rater masks are distributed in the public release vs. only used for scoring.</li>
+  <li>Test masks historically withheld.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>One of the few stroke datasets that ships <em>two</em> independent expert tracings rather than a single fused ground truth — a built-in inter-rater-variability substrate on a canonically subtle finding. Pairs naturally with ISLES 2022 for a cross-edition difficulty comparison.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

@@ -18,17 +18,17 @@
   </nav>
 </header>
 <main>
-<p class="subtitle">Tier-ranked index of 26 public radiology datasets with subtlety / perceptibility / conspicuity signal.</p>
+<p class="subtitle">Tier-ranked index of 59 public radiology datasets with subtlety / perceptibility / conspicuity signal.</p>
 <h1>Subtlety / Perceptibility Dataset Index</h1>
-<p>Tier-ranked index of 26 public radiology datasets surveyed for <strong>explicit subtlety / perceptibility / conspicuity labels</strong> (or usable difficulty proxies). Built from the completed survey (<code>research-output.md</code> in <code>nodule-detectability</code>&#x27;s task-rounding project). See <code>PROJECT_SUMMARY.md</code> for scope and purpose, and <code>notes/follow-ups.md</code> for the highest-leverage next moves.</p>
+<p>Tier-ranked index of 59 public radiology datasets surveyed for <strong>subtlety / perceptibility / conspicuity signal</strong> — read broadly: explicit subtlety/conspicuity labels, multi-reader disagreement designs, miss-rate / perceptual-error studies, eye-tracking/gaze datasets, difficulty-stratified subsets, and datasets whose <em>finding is canonically subtle/hard-to-detect</em> (early ischemic change, small ICH, subtle fractures, small PE, small mets, PDAC). Originally a chest/breast-dominated set of 26 (built from the survey in <code>nodule-detectability</code>&#x27;s task-rounding project); a 2026-06-24 discovery sweep widened the net to cover neuro (esp. stroke), abdomen/body, and other under-represented regions. See <code>PROJECT_SUMMARY.md</code> for scope, <code>notes/follow-ups.md</code> for next moves, and <code>notes/search-strategy.md</code> for the discovery method/log.</p>
 <h2>Tiering</h2>
 <ul>
-  <li><strong>Tier A — Direct subtlety/perceptibility/conspicuity labels.</strong> A dataset carries an explicit numeric or categorical subtlety/conspicuity field.</li>
-  <li><strong>Tier B — Reader-disagreement / multi-rater designs.</strong> No explicit subtlety field, but multi-reader label noise / disagreement is usable as a difficulty proxy.</li>
-  <li><strong>Tier C — Adjacent / partial signal.</strong> Weaker fit — process-level (eye-tracking) signal, derivable subsets, or no perceptibility axis at all (listed for completeness).</li>
+  <li><strong>Tier A — Direct subtlety/perceptibility/conspicuity (or per-exam difficulty/quality) labels.</strong> A dataset carries an explicit numeric or categorical subtlety/conspicuity/difficulty field.</li>
+  <li><strong>Tier B — Reader-disagreement / multi-rater designs.</strong> No explicit subtlety field, but multi-reader label noise / disagreement is usable as a difficulty proxy (strongest when per-rater annotations are preserved).</li>
+  <li><strong>Tier C — Adjacent / partial signal.</strong> Weaker fit — process-level (eye-tracking) signal, derivable subsets, canonically-subtle findings without an explicit label, or detection challenges (listed for coverage).</li>
 </ul>
 <hr>
-<h2 id="datasets">Tier A — Direct subtlety / conspicuity labels</h2>
+<h2 id="datasets">Tier A — Direct subtlety / conspicuity / difficulty labels</h2>
 <div class="table-wrap">
 <table>
 <thead>
@@ -81,6 +81,30 @@
 <td>1.3M studies, ~7M images</td>
 <td>Restricted (DUA)</td>
 <td><a href="datasets/optimam-omi-db.html">optimam-omi-db</a></td>
+</tr>
+<tr>
+<td>AISD</td>
+<td>NCCT / acute ischemic infarct</td>
+<td>Per-lesion conspicuity: clear / blurred / invisible</td>
+<td>397 NCCT (paired DWI)</td>
+<td>Open (GitHub)</td>
+<td><a href="datasets/aisd.html">aisd</a></td>
+</tr>
+<tr>
+<td>CPAISD</td>
+<td>NCCT / hyperacute ischemic core+penumbra</td>
+<td>Perceptibility-defined (&quot;non-revealing on NCCT&quot;)</td>
+<td>112 patients</td>
+<td>Open (Zenodo)</td>
+<td><a href="datasets/cpaisd.html">cpaisd</a></td>
+</tr>
+<tr>
+<td>RSNA-PE (RSPECT)</td>
+<td>CTPA / pulmonary embolism</td>
+<td>Per-exam QA / difficulty / PE-mimic flags</td>
+<td>9,446 exams</td>
+<td>Open (Kaggle/AWS)</td>
+<td><a href="datasets/rsna-pe.html">rsna-pe</a></td>
 </tr>
 </tbody>
 </table>
@@ -188,6 +212,102 @@
 <td>Open (DUA)</td>
 <td><a href="datasets/pi-cai.html">pi-cai</a></td>
 </tr>
+<tr>
+<td>CQ500</td>
+<td>Head NCCT / ICH, fracture, shift</td>
+<td>3 radiologists/scan, per-rater reads released</td>
+<td>491 scans</td>
+<td>Open (CC BY-NC-SA)</td>
+<td><a href="datasets/cq500.html">cq500</a></td>
+</tr>
+<tr>
+<td>ISLES 2022</td>
+<td>Brain MRI (DWI/ADC/FLAIR) / ischemic stroke</td>
+<td>Punctiform-infarct inclusion + inter-rater study; multi-vendor</td>
+<td>250 public</td>
+<td>Open (Zenodo CC-BY)</td>
+<td><a href="datasets/isles-2022.html">isles-2022</a></td>
+</tr>
+<tr>
+<td>ISLES 2015 (SISS)</td>
+<td>Multi-spectral MRI / sub-acute infarct</td>
+<td>Two independent expert ground-truth sets</td>
+<td>64 cases</td>
+<td>Open (challenge/Zenodo)</td>
+<td><a href="datasets/isles-2015-siss.html">isles-2015-siss</a></td>
+</tr>
+<tr>
+<td>KiTS21</td>
+<td>CECT / kidney tumor + cyst</td>
+<td>3 independent per-ROI annotations preserved</td>
+<td>300 public</td>
+<td>Open (CC BY-NC-SA)</td>
+<td><a href="datasets/kits21.html">kits21</a></td>
+</tr>
+<tr>
+<td>CURVAS</td>
+<td>Abdominal CT / pancreas, kidney, liver</td>
+<td>3 expert per-rater masks preserved (calibration/uncertainty)</td>
+<td>90 scans</td>
+<td>Open (Zenodo/GC)</td>
+<td><a href="datasets/curvas.html">curvas</a></td>
+</tr>
+<tr>
+<td>CURVAS-PDACVI</td>
+<td>CECT / PDAC + vasculature</td>
+<td>5 per-rater masks preserved on a subtle finding</td>
+<td>125 scans (40 train public)</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/curvas-pdacvi.html">curvas-pdacvi</a></td>
+</tr>
+<tr>
+<td>MSSEG-2016</td>
+<td>Brain MRI / MS lesions</td>
+<td>7 expert raters, all per-rater masks released</td>
+<td>53 patients</td>
+<td>Open (Shanoir DUA)</td>
+<td><a href="datasets/msseg-2016.html">msseg-2016</a></td>
+</tr>
+<tr>
+<td>WMH Challenge</td>
+<td>Brain MRI (FLAIR/T1) / WMH</td>
+<td>2 additional observers&#x27; per-rater masks (train)</td>
+<td>170 subjects</td>
+<td>Open (CC BY-NC)</td>
+<td><a href="datasets/wmh-challenge.html">wmh-challenge</a></td>
+</tr>
+<tr>
+<td>QUBIQ</td>
+<td>MRI/CT multi-organ (brain subtasks)</td>
+<td>Per-rater masks by design (3–7 raters/task)</td>
+<td>Small per task</td>
+<td>Open (GC registration)</td>
+<td><a href="datasets/qubiq.html">qubiq</a></td>
+</tr>
+<tr>
+<td>VerSe (Genant)</td>
+<td>Spine CT / vertebral fractures</td>
+<td>Genant grade 0–3 + multi-reader re-grading</td>
+<td>160 series / 1,725 vertebrae</td>
+<td>Open (CC BY-SA)</td>
+<td><a href="datasets/verse.html">verse</a></td>
+</tr>
+<tr>
+<td>ChestX-Det</td>
+<td>CXR / 10 thoracic findings</td>
+<td>Blinded double-read + adjudication, instance-level</td>
+<td>3,543 images</td>
+<td>Open (GitHub)</td>
+<td><a href="datasets/chestx-det.html">chestx-det</a></td>
+</tr>
+<tr>
+<td>CAMUS</td>
+<td>Echocardiography / cardiac chambers</td>
+<td>Image-quality grade + inter-/intra-observer fold</td>
+<td>500 patients</td>
+<td>Open (registration)</td>
+<td><a href="datasets/camus.html">camus</a></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -228,6 +348,14 @@
 <td>n/a</td>
 <td>Per paper (verify)</td>
 <td><a href="datasets/fg-cxr.html">fg-cxr</a></td>
+</tr>
+<tr>
+<td>CT-ScanGaze</td>
+<td>Body CT (3D) / radiologist gaze</td>
+<td>First volumetric gaze/scanpath proxy</td>
+<td>909 CT volumes</td>
+<td>Open (HF, CC BY-NC-SA)</td>
+<td><a href="datasets/ct-scangaze.html">ct-scangaze</a></td>
 </tr>
 <tr>
 <td>NLST</td>
@@ -301,17 +429,162 @@
 <td>Per paper</td>
 <td><a href="datasets/isbi-ms-multirater.html">isbi-ms-multirater</a></td>
 </tr>
+<tr>
+<td>ATLAS v2.0</td>
+<td>Brain MRI / chronic stroke</td>
+<td>Documented small-lesion difficulty; consensus masks</td>
+<td>1,271 scans</td>
+<td>Open (DUA)</td>
+<td><a href="datasets/atlas-v2.html">atlas-v2</a></td>
+</tr>
+<tr>
+<td>ISLES 2018</td>
+<td>CT perfusion / acute infarct core</td>
+<td>CTP-vs-DWI modality-mismatch difficulty</td>
+<td>103 cases</td>
+<td>Open (Zenodo)</td>
+<td><a href="datasets/isles-2018.html">isles-2018</a></td>
+</tr>
+<tr>
+<td>RSNA ICH</td>
+<td>Head NCCT / hemorrhage</td>
+<td>Canonically subtle finding; reconciled single label</td>
+<td>25,272 exams</td>
+<td>Open (Kaggle/AWS)</td>
+<td><a href="datasets/rsna-ich.html">rsna-ich</a></td>
+</tr>
+<tr>
+<td>PhysioNet CT-ICH</td>
+<td>Head NCCT / hemorrhage</td>
+<td>Voxel masks; 2-reader consensus (not preserved)</td>
+<td>82 scans</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/physionet-ct-ich.html">physionet-ct-ich</a></td>
+</tr>
+<tr>
+<td>BHSD</td>
+<td>Head NCCT / hemorrhage subtypes</td>
+<td>Subtype voxel masks; canonically subtle</td>
+<td>~2,192 scans</td>
+<td>Open (GitHub)</td>
+<td><a href="datasets/bhsd.html">bhsd</a></td>
+</tr>
+<tr>
+<td>ADAM</td>
+<td>TOF-MRA / unruptured aneurysm</td>
+<td>Small-aneurysm detection challenge</td>
+<td>113 train</td>
+<td>Open (GC registration)</td>
+<td><a href="datasets/adam.html">adam</a></td>
+</tr>
+<tr>
+<td>CADA</td>
+<td>3D-DSA / cerebral aneurysm</td>
+<td>Tiny-target detection imbalance</td>
+<td>109 train / 127 aneurysms</td>
+<td>Open (GC registration)</td>
+<td><a href="datasets/cada.html">cada</a></td>
+</tr>
+<tr>
+<td>BraTS-METS</td>
+<td>Brain MRI / metastases</td>
+<td>Small-met segmentation; consensus</td>
+<td>402 public / 3,076 lesions</td>
+<td>Open (Synapse)</td>
+<td><a href="datasets/brats-mets.html">brats-mets</a></td>
+</tr>
+<tr>
+<td>UCSF-BMSR</td>
+<td>Brain MRI / metastases</td>
+<td>Large small-met corpus; subtraction imgs</td>
+<td>560 MRIs / 5,136 mets</td>
+<td>Open (AWS)</td>
+<td><a href="datasets/ucsf-bmsr.html">ucsf-bmsr</a></td>
+</tr>
+<tr>
+<td>MS3SEG</td>
+<td>Brain MRI / MS lesions</td>
+<td>Tri-mask subtle-vs-benign WMH discrimination</td>
+<td>100 patients</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/ms3seg.html">ms3seg</a></td>
+</tr>
+<tr>
+<td>PANORAMA</td>
+<td>CECT / pancreatic PDAC</td>
+<td>Canonically missed cancer (miss-rate); reader study</td>
+<td>1,500+ (public train)</td>
+<td>Open (Zenodo/TCIA)</td>
+<td><a href="datasets/panorama.html">panorama</a></td>
+</tr>
+<tr>
+<td>LiTS</td>
+<td>CT / liver tumor</td>
+<td>Small/low-contrast lesions; no perceptibility label</td>
+<td>200 scans</td>
+<td>Open (CodaLab)</td>
+<td><a href="datasets/lits.html">lits</a></td>
+</tr>
+<tr>
+<td>FUMPE</td>
+<td>CTPA / pulmonary embolism</td>
+<td>67% subsegmental clots; no explicit label</td>
+<td>35 patients / 3,438 ROIs</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/fumpe.html">fumpe</a></td>
+</tr>
+<tr>
+<td>RSNA Cervical Spine</td>
+<td>Cervical CT / fracture</td>
+<td>Canonically missed trauma finding</td>
+<td>3,112 studies</td>
+<td>Open (Kaggle/AWS)</td>
+<td><a href="datasets/rsna-cervical-spine.html">rsna-cervical-spine</a></td>
+</tr>
+<tr>
+<td>RibFrac</td>
+<td>Chest CT / rib fractures</td>
+<td>Subtype labels; annotators flag mask ambiguity</td>
+<td>660 scans / ~5,000 fx</td>
+<td>Open (CC BY-NC)</td>
+<td><a href="datasets/ribfrac.html">ribfrac</a></td>
+</tr>
+<tr>
+<td>GRAZPEDWRI-DX</td>
+<td>Pediatric wrist X-ray / fracture</td>
+<td>Occult-fracture secondary-sign labels</td>
+<td>20,327 images</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/grazpedwri-dx.html">grazpedwri-dx</a></td>
+</tr>
+<tr>
+<td>FracAtlas</td>
+<td>MSK X-ray / fracture</td>
+<td>Adjudicated reader-disagreement trail</td>
+<td>4,083 images</td>
+<td>Open (CC BY)</td>
+<td><a href="datasets/fracatlas.html">fracatlas</a></td>
+</tr>
 </tbody>
 </table>
 </div>
 <hr>
 <h2>At-a-glance counts</h2>
 <ul>
-  <li><strong>Tier A (direct label):</strong> 5 — LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM/OMI-DB</li>
+  <li><strong>Tier A (direct label):</strong> 8 — LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM/OMI-DB, AISD, CPAISD, RSNA-PE</li>
   <li><strong>Tier A/B hybrid:</strong> 1 — CheXthought</li>
-  <li><strong>Tier B (difficulty proxy):</strong> 8 — VinDr-CXR, VinDr-Mammo, MURA, BraTS, Messidor-2, OAI, MIDRC/RICORD, PI-CAI</li>
-  <li><strong>Tier C (adjacent):</strong> 12 — REFLACX, EGD-CXR, FG-CXR, NLST, SIIM-ACR Pneumothorax, BCS-DBT, EMBED, INbreast, PadChest, CheXpert, NIH ChestX-Ray14, ISBI/MS multi-rater</li>
-  <li><strong>Total surveyed:</strong> 26</li>
+  <li><strong>Tier B (difficulty proxy):</strong> 20 — VinDr-CXR, VinDr-Mammo, MURA, BraTS, Messidor-2, OAI, MIDRC/RICORD, PI-CAI, CQ500, ISLES 2022, ISLES 2015 (SISS), KiTS21, CURVAS, CURVAS-PDACVI, MSSEG-2016, WMH Challenge, QUBIQ, VerSe (Genant), ChestX-Det, CAMUS</li>
+  <li><strong>Tier C (adjacent):</strong> 30 — REFLACX, EGD-CXR, FG-CXR, CT-ScanGaze, NLST, SIIM-ACR Pneumothorax, BCS-DBT, EMBED, INbreast, PadChest, CheXpert, NIH ChestX-Ray14, ISBI/MS multi-rater, ATLAS v2.0, ISLES 2018, RSNA ICH, PhysioNet CT-ICH, BHSD, ADAM, CADA, BraTS-METS, UCSF-BMSR, MS3SEG, PANORAMA, LiTS, FUMPE, RSNA Cervical Spine, RibFrac, GRAZPEDWRI-DX, FracAtlas</li>
+  <li><strong>Total surveyed:</strong> 59</li>
+</ul>
+<h2>Coverage by region (after the 2026-06-24 sweep)</h2>
+<ul>
+  <li><strong>Neuro — stroke (ischemic):</strong> AISD, CPAISD, ISLES 2022, ISLES 2015 (SISS), ISLES 2018, ATLAS v2.0 — <strong>6 ischemic-stroke datasets</strong> (was 0).</li>
+  <li><strong>Neuro — hemorrhage / aneurysm:</strong> CQ500, RSNA ICH, PhysioNet CT-ICH, BHSD (hemorrhage); ADAM, CADA (aneurysm) — 6.</li>
+  <li><strong>Neuro — other:</strong> BraTS, MSSEG-2016, WMH Challenge, QUBIQ, BraTS-METS, UCSF-BMSR, MS3SEG, ISBI/MS.</li>
+  <li><strong>Abdomen / body:</strong> KiTS21 (kidney), LiTS (liver), PANORAMA + CURVAS-PDACVI (pancreas/PDAC), CURVAS (multi-organ) — <strong>5 abdominal datasets</strong> (was 0).</li>
+  <li><strong>MSK / spine:</strong> MURA, OAI, VerSe (Genant), RibFrac, GRAZPEDWRI-DX, FracAtlas, RSNA Cervical Spine.</li>
+  <li><strong>Thorax (PE / cardiac):</strong> RSNA-PE, FUMPE (PE); CAMUS (cardiac); + the existing chest/breast CXR &amp; mammography set.</li>
 </ul>
 </main>
 <footer class="site-footer">

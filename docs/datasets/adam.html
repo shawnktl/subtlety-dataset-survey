@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADAM (Aneurysm Detection And segMentation challenge) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ADAM (Aneurysm Detection And segMentation challenge)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding + detection-difficulty design)</li>
+  <li><strong>Modality / anatomy:</strong> TOF-MRA (+ co-registered T1/T2/FLAIR) / intracranial vasculature</li>
+  <li><strong>Finding type:</strong> Unruptured intracranial aneurysms (UIA) — detection (Task 1) + segmentation (Task 2)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Small UIAs (&lt;3–5 mm) are canonically hard to detect on TOF-MRA; the challenge is explicitly a detection task scored by sensitivity and false-positive count, and includes 20 aneurysm-negative cases to test false-positive behavior — a detection-difficulty design rather than a labeled perceptibility axis.</p>
+<h2>Label provenance</h2>
+<p>Manual binary masks by expert annotators (radiologists); reference standard from clinical reads + expert delineation. <code>[VERIFY]</code> exact rater count / consensus protocol.</p>
+<h2>Size</h2>
+<p>113 training subjects (93 with ≥1 annotated UIA, 20 with no aneurysm); separate hidden test set. Each training subject has 1 TOF-MRA + 1 structural scan.</p>
+<h2>Access / licensing</h2>
+<p>Open via Grand Challenge registration (UMC Utrecht). <a href="https://adam.isi.uu.nl/">https://adam.isi.uu.nl/</a> ; details: <a href="https://adam.isi.uu.nl/details/">https://adam.isi.uu.nl/details/</a> ; paper: Timmins et al., <em>NeuroImage</em> 2021, <a href="https://www.sciencedirect.com/science/article/pii/S1053811921004936">https://www.sciencedirect.com/science/article/pii/S1053811921004936</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Test labels withheld (eval via submission).</li>
+  <li>Modest case count; single primary site.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A small-aneurysm detection benchmark on MRA — the canonically subtle &quot;did you miss the 3 mm aneurysm&quot; problem, with built-in negative cases to probe false positives. Difficulty is inherent to the task, not labeled per-lesion.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

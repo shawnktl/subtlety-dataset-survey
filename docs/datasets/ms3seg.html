@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MS3SEG (MS MRI Tri-Mask Dataset) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>MS3SEG (MS MRI Tri-Mask Dataset)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (explicit subtle-vs-benign discrimination labeling; consensus, not multi-rater)</li>
+  <li><strong>Modality / anatomy:</strong> Brain MRI (T1, T2, T2-FLAIR; axial + sagittal), 1.5T / white matter</li>
+  <li><strong>Finding type:</strong> MS lesions, explicitly separated from confusable normal WMH via a tri-mask scheme</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but the <strong>tri-mask scheme directly targets a perceptibility/discrimination problem</strong>: labels distinguish (1) ventricles, (2) &quot;normal&quot; age-related/CSF-contaminated WMH, and (3) &quot;abnormal&quot; WMH = MS lesions. The dataset is built around separating genuinely subtle pathological hyperintensities from benign look-alikes — a detectability-discrimination signal, even though it&#x27;s consensus-labeled.</p>
+<h2>Label provenance</h2>
+<p>Expert delineation on axial T2-FLAIR with &quot;expert consensus review&quot; + automated QC. Number of raters and consensus methodology not specified <code>[VERIFY]</code>.</p>
+<h2>Size</h2>
+<p>100 MS patients (74 F / 26 M, ages 18–55), ~2,000 annotated slices.</p>
+<h2>Access / licensing</h2>
+<p><strong>Open.</strong> Dataset CC-BY-4.0 on Figshare (https://doi.org/10.6084/m9.figshare.30393475); code MIT (github.com/Mahdi-Bashiri/MS3SEG). Paper: Bashiri et al., <em>Scientific Data</em> 2026, <a href="https://www.nature.com/articles/s41597-026-07184-5">https://www.nature.com/articles/s41597-026-07184-5</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Single scanner (Toshiba 1.5T), single Iranian cohort → limited generalizability.</li>
+  <li>Rater count / consensus process unstated <code>[VERIFY]</code>; consensus labels, no per-rater masks (for preserved disagreement, see MSSEG-2016 / WMH Challenge).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A rare dataset whose label scheme <em>is</em> the perceptibility question — distinguishing subtle pathological WMH from benign mimics is exactly the discrimination at the heart of MS-lesion detectability. Openly licensed, complementing the DUA-gated MSSEG sets.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

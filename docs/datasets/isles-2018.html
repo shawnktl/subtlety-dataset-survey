@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISLES 2018 — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ISLES 2018</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically hard finding; modality-mismatch difficulty, segmentation-only)</li>
+  <li><strong>Modality / anatomy:</strong> CT Perfusion (CTP source + derived maps), DWI-MRI–derived ground truth / brain — acute infarct core</li>
+  <li><strong>Finding type:</strong> Acute ischemic infarct core (segmentation from CTP)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. The infarct core on CTP is canonically hard to delineate, and the ground truth comes from <strong>DWI-MRI acquired a median 37 min after the CTP</strong> (because the core is more reliably seen on DWI than CTP). The modality-mismatch — label from MRI, image is CT — is precisely a detectability gap, but it is inferred, not labeled. Multi-center (4 centers) adds scanner variability.</p>
+<h2>Label provenance</h2>
+<p>Core lesions manually outlined on DWI-MRI by experts; transferred as ground truth for CTP. <code>[VERIFY]</code> rater count (likely single expert per case).</p>
+<h2>Size</h2>
+<p>103 cases; 94 labeled training images from 63 patients / 62 testing images from 40 patients.</p>
+<h2>Access / licensing</h2>
+<p>Public; bundled on Zenodo with the 2015/2017 editions. <a href="https://zenodo.org/records/17736412">https://zenodo.org/records/17736412</a> ; challenge: <a href="http://www.isles-challenge.org/ISLES2018/">http://www.isles-challenge.org/ISLES2018/</a> ; paper: Hakim et al., <em>Stroke</em> 2021, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8240494/">https://pmc.ncbi.nlm.nih.gov/articles/PMC8240494/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>No multi-rater disagreement published; no explicit subtlety label.</li>
+  <li>Difficulty signal is the CTP-vs-DWI modality gap, inferred not labeled.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The CT-perfusion ischemic-core edition of ISLES, where the ground truth is deliberately drawn from a <em>more sensitive</em> modality (DWI) than the input (CTP) — a clean built-in illustration of a perceptibility gap between modalities, useful for asking how much a model can recover a finding that is barely visible on the supplied image.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

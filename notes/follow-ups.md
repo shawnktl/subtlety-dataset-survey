@@ -4,6 +4,18 @@ From the survey's recommendations, in priority order. See `index.md` for the ful
 
 ---
 
+## 0. New highest-leverage assets from the 2026-06-24 wider-net sweep
+
+The sweep (+33 datasets → 59) closed the stroke and abdominal gaps and surfaced three standout cross-anatomy assets that now rank alongside CheXthought for the detectability framing:
+
+- **AISD** (NCCT acute ischemic infarct, `datasets/aisd.md`) — the closest neuro analogue to LIDC's 1–5 scale: an **explicit graded conspicuity label** (clear / blurred / invisible) on a canonically subtle finding, with paired DWI as ground truth. *Concrete move:* test whether the LIDC-trained MAE-band / k-NN detectability framing transfers to the clear/blurred/invisible strata — the cleanest non-chest Tier-A validation available.
+- **CURVAS-PDACVI** (CECT pancreas/PDAC, `datasets/curvas-pdacvi.md`) — spans **both** axes: a subtle finding (PDAC, 58–77% CT sensitivity at ≤2 cm) *and* 5 preserved per-rater masks. *Concrete move:* use as the abdominal test of whether per-rater disagreement predicts detectability the way subtlety does in LIDC.
+- **MSSEG-2016** (brain MS MRI, `datasets/msseg-2016.md`) — **7 expert raters, all per-rater masks released**; the strongest preserved-disagreement substrate in the survey. *Concrete move:* the best off-the-shelf MR external-validation set for "does inter-rater divergence behave like a subtlety signal on MR?" — partially addresses the MR gap below (on the disagreement axis, not the labeled-subtlety axis). DUA-gated; **WMH Challenge** (`datasets/wmh-challenge.md`) and **QUBIQ** (`datasets/qubiq.md`) are one-click-open per-rater alternatives.
+
+`[VERIFY]` flags on these pages (label-aggregation method, license tags, rater counts) should be confirmed directly before relying on them — see each dataset page.
+
+---
+
 ## 1. CheXthought (Stanford AIMI) — pursue first
 
 By far the most directly aligned new asset for the broader detectability framing. Chain-of-thought reasoning + visual attention + multi-reader disagreement at 50k-CXR / 501-radiologist scale operationalizes "perceptibility" as a *behavior*, not just a label.
@@ -46,15 +58,17 @@ CBIS-DDSM has the actual 1–5 subtlety field; VinDr-Mammo doesn't (but has mult
 
 This gap is the clearest "the detectability framing may be nodule/CT-specific" risk for the broader product framing — there is no off-the-shelf MR subtlety ground truth to validate against.
 
+**Update (2026-06-24 sweep):** still no *explicit per-lesion subtlety label* on MR — the gap stands on the labeled-subtlety axis. But the *disagreement* axis on MR is now well-covered with preserved per-rater data: **MSSEG-2016** (7 raters), **WMH Challenge** (extra observers), **QUBIQ** (per-rater by design), **BraTS-METS** / **UCSF-BMSR** (small-met regime). The MR validation route is now via disagreement, not labels.
+
 ---
 
-## Other gaps (from the survey)
+## Other gaps (from the survey) — with 2026-06-24 status
 
-- **Cross-modality "missed-on-prior" labeling:** no packaged dataset surfaces a per-finding "missed on prior study" label. NLST missed-cancer subset is closest but requires reconstruction.
-- **Pediatric imaging:** no subtlety-labeled pediatric dataset surfaced.
-- **Abdominal cross-sectional (CT/MR):** DeepLesion is the closest adult CT dataset but has no per-lesion subtlety.
-- **Vascular / acute stroke or PE:** RSNA PE has QA flags but no per-PE conspicuity rating; stroke datasets have segmentation difficulty but no perceptibility label.
-- **Dental, ultrasound, nuclear medicine:** effectively no subtlety-labeled public data found.
+- **Cross-modality "missed-on-prior" labeling:** no packaged dataset surfaces a per-finding "missed on prior study" label. NLST missed-cancer subset is closest but requires reconstruction. *(Still open.)*
+- **Pediatric imaging:** GRAZPEDWRI-DX (pediatric wrist fracture) added, with occult-fracture secondary-sign labels — but it carries no explicit subtlety grade. *(Largely still open.)*
+- **Abdominal cross-sectional (CT/MR):** ~~DeepLesion is the closest...~~ **CLOSED** — KiTS21, LiTS, PANORAMA, CURVAS, CURVAS-PDACVI added; PDAC (PANORAMA/CURVAS-PDACVI) gives a canonically-subtle finding with quantified miss-rate, and KiTS21/CURVAS give preserved per-rater disagreement. DeepLesion/AMOS/AbdomenCT-1K were evaluated and excluded (no perceptibility signal).
+- **Vascular / acute stroke or PE:** **LARGELY CLOSED** — stroke now has 6 ischemic + 4 hemorrhage + 2 aneurysm datasets, incl. **AISD** (explicit conspicuity labels) and **CQ500** (3 reads released). **RSNA-PE** promoted to Tier A on its per-exam QA/mimic flags; FUMPE adds subsegmental-PE masks. Still no per-PE *conspicuity rating*.
+- **Dental, ultrasound, nuclear medicine:** ultrasound now has **CAMUS** (echo, image-quality grade + observer-variability fold); dental and nuclear medicine still effectively absent.
 
 ---
 

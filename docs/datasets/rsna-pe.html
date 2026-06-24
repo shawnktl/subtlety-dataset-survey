@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSNA-PE (RSNA-STR Pulmonary Embolism CT / &quot;RSPECT&quot;) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>RSNA-PE (RSNA-STR Pulmonary Embolism CT / &quot;RSPECT&quot;)</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct difficulty/quality label (per-exam QA / perceptibility flags)</li>
+  <li><strong>Modality / anatomy:</strong> CT pulmonary angiography (CTPA) / pulmonary arteries — thorax</li>
+  <li><strong>Finding type:</strong> Acute &amp; chronic pulmonary embolism, with laterality, central/saddle location, RV/LV ratio (right-heart strain)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Carries an explicit <strong>per-exam QA / difficulty / mimic label layer</strong> (verified against the RSPECT paper): <strong>QA-Motion</strong>, <strong>QA-Contrast</strong> (insufficient arterial opacification to assess for PE), <strong>Flow Artifact</strong> (laminar-flow pseudo-defect — a PE mimic), <strong>True Filling Defect (not PE)</strong>, and <strong>Indeterminate</strong> (annotated with one or more QA labels). These are genuine annotation-quality / perceptibility / PE-mimic flags — a rare explicit &quot;is this image even readable, and is the defect real or a mimic&quot; axis. Separately, a bounding-box augmentation found 67.7% of newly-discovered previously-unlabeled emboli were subsegmental, confirming small/subsegmental PE is canonically subtle and frequently missed.</p>
+<h2>Label provenance</h2>
+<blockquote><p>80 thoracic radiologists via the Society of Thoracic Radiology produced study-level (9 diagnostic + QA labels) and image-level (&quot;PE present on image&quot;) annotations; distributed single-pass labeling (not a fixed multi-rater-per-case consensus). The augmentation added bounding boxes on 445 positive studies via 4 board-certified radiologists + 1 cardiothoracic adjudicator.</p></blockquote>
+<h2>Size</h2>
+<blockquote><p>12,000 CTPA studies contributed (5 international centers). Released challenge set: 9,446 exams / 2,322,685 images (train 7,279 / test 2,167).</p></blockquote>
+<h2>Access / licensing</h2>
+<p>Public, non-commercial (academic/education); no redistribution / re-identification, attribution required. Kaggle + RSNA MIRA portal (mira.rsna.org); AWS Open Data mirror. <a href="https://registry.opendata.aws/rsna-pulmonary-embolism-detection/">https://registry.opendata.aws/rsna-pulmonary-embolism-detection/</a> ; paper: <a href="https://pubs.rsna.org/doi/full/10.1148/ryai.2021200254">https://pubs.rsna.org/doi/full/10.1148/ryai.2021200254</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>QA flags are study-level annotation-quality / mimic labels, not a continuous per-finding conspicuity score. Image-level label is binary.</li>
+  <li>Distributed single-pass labeling — not designed around per-case reader disagreement.</li>
+  <li>The 67.7%-subsegmental figure is from the 445-study augmentation subset, not the whole corpus.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The QA/mimic flags operationalize a distinct axis from &quot;subtlety of a present finding&quot;: <em>image readability</em> and <em>false-positive mimics</em> (flow artifact vs true clot). Combined with the canonically subtle subsegmental-PE finding, it&#x27;s the strongest body-CT detectability asset and the closest thing to an explicit difficulty label outside chest radiography and LIDC.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

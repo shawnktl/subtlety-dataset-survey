@@ -538,7 +538,7 @@ def build() -> None:
             index_body,
             depth=0,
             active="index",
-            subtitle="Tier-ranked index of 26 public radiology datasets with subtlety / perceptibility / conspicuity signal.",
+            subtitle="Tier-ranked index of 59 public radiology datasets with subtlety / perceptibility / conspicuity signal.",
         ),
     )
     written.append("index.html")

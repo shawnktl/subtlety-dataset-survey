@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPAISD (Core-Penumbra Acute Ischemic Stroke Dataset) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CPAISD (Core-Penumbra Acute Ischemic Stroke Dataset)</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label (perceptibility-defined dataset)</li>
+  <li><strong>Modality / anatomy:</strong> Non-contrast CT (NCCT) / brain — hyperacute ischemic core &amp; penumbra</li>
+  <li><strong>Finding type:</strong> Hyperacute ischemic core and penumbra (slice-level segmentation)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p><strong>The dataset is defined by perceptibility.</strong> Its premise: for the absolute majority of cases the NCCT findings are <em>non-revealing</em> — a trained radiologist could <strong>not</strong> locate the ischemic area on NCCT alone. The annotator delineated core/penumbra only by cross-referencing CT-perfusion maps. By construction this is a &quot;the finding is effectively invisible on the image&quot; dataset — a perceptibility floor case.</p>
+<h2>Label provenance</h2>
+<p>Single radiologist (10 yr experience) marked all sections, cross-referencing CT-perfusion maps to localize core and penumbra. No consensus / multi-rater methodology described.</p>
+<h2>Size</h2>
+<p>112 patients (8,376 training slices / 980 validation / 809 test).</p>
+<h2>Access / licensing</h2>
+<p>Open access. Zenodo: <a href="https://zenodo.org/records/10892316">https://zenodo.org/records/10892316</a> ; code/weights: <a href="https://github.com/sb-ai-lab/early_hyperacute_stroke_dataset">https://github.com/sb-ai-lab/early_hyperacute_stroke_dataset</a>. Paper: Tuchinov et al., &quot;CPAISD: Core-Penumbra Acute Ischemic Stroke Dataset,&quot; arXiv:2404.02518 (2024).</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Single rater — no inter-rater disagreement.</li>
+  <li>The perceptibility signal is real and explicit at the <em>dataset</em> level (NCCT non-revealing), but the ground truth is perfusion-derived, so it labels what is <em>there</em>, not a per-region perceptibility grade like AISD&#x27;s clear/blurred/invisible.</li>
+  <li>Small patient count (112).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A near-pure &quot;detectability floor&quot; dataset: the labeled finding is, for most cases, invisible on the supplied NCCT. Useful as the extreme end of the subtlety spectrum — what does a model/reader do when the signal is genuinely below the perceptual threshold of the modality?</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
