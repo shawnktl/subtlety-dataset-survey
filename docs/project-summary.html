@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Summary — Subtlety / Perceptibility Dataset Survey — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="index.html">Index</a>
+    <a href="index.html#datasets">Datasets</a>
+    <a href="notes/follow-ups.html">Follow-ups</a>
+    <a href="resources/sources.html">Sources</a>
+    <a class="active" href="project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>Project Summary — Subtlety / Perceptibility Dataset Survey</h1>
+<h2>Scope</h2>
+<p>A browsable reference of <strong>publicly available radiology datasets that annotate finding subtlety / perceptibility / conspicuity</strong> — or that carry a usable difficulty proxy (reader disagreement, multi-rater designs, process-level eye-tracking signal). 26 datasets surveyed, tier-ranked A/B/C and given one page each under <code>datasets/</code>.</p>
+<p>The survey deliberately distinguishes three tiers:</p>
+<ul>
+  <li><strong>Tier A — direct subtlety/conspicuity label</strong> (LIDC-IDRI, JSRT, CBIS-DDSM, LNDb, OPTIMAM/OMI-DB). A dataset carries an explicit numeric or categorical subtlety/conspicuity field.</li>
+  <li><strong>Tier B — reader-disagreement / multi-rater design</strong> (VinDr-CXR, VinDr-Mammo, MURA, BraTS, Messidor-2, OAI, MIDRC/RICORD, PI-CAI; plus CheXthought as an A/B hybrid). No explicit subtlety field, but label noise / inter-reader disagreement encodes ambiguity.</li>
+  <li><strong>Tier C — adjacent / partial signal</strong> (REFLACX, EGD-CXR, FG-CXR, NLST, SIIM-ACR, BCS-DBT, EMBED, INbreast, PadChest, CheXpert, NIH ChestX-Ray14, ISBI/MS). Weaker fit — process-level signal, derivable subsets, or no perceptibility axis at all.</li>
+</ul>
+<h2>Why</h2>
+<p>Spawned from <code>nodule-detectability</code>. The downstream consumer is the broader <strong>detectability product/pipeline framing</strong> (patent-lawyer interest; MAE-band vs k-NN output). The current anchor source is LIDC-IDRI&#x27;s per-nodule 1–5 subtlety rating. The open question driving this survey: <strong>how general is the detectability framing across modalities and findings, vs how nodule/CT-specific is it?</strong></p>
+<p>This repo makes &quot;what labeled data exists across modalities/findings&quot; answerable at a glance, so the framing&#x27;s generality is easy to reason about. Two key conclusions surfaced:</p>
+<ol>
+  <li>The direct-subtlety landscape is <strong>small</strong> — outside LIDC, only JSRT, CBIS-DDSM, LNDb, and OPTIMAM carry a direct subtlety/conspicuity label.</li>
+  <li>There is a clear <strong>MR-with-explicit-subtlety-labels gap</strong> (no public dataset found), which is the sharpest &quot;may be CT-specific&quot; risk for the broader framing. See <code>notes/follow-ups.md</code>.</li>
+</ol>
+<p>The single highest-leverage new discovery is <strong>CheXthought</strong> (Stanford AIMI) — chain-of-thought reasoning + visual attention + multi-reader disagreement at 50k-CXR / 501-radiologist scale, which operationalizes perceptibility as behavior.</p>
+<h2>How the repo is used</h2>
+<ul>
+  <li><strong><code>index.md</code></strong> — start here. Tier-ranked table linking every dataset page with modality, label, size, and access at a glance.</li>
+  <li><strong><code>datasets/&lt;id&gt;.md</code></strong> — one page per dataset: modality/anatomy, finding type, the subtlety/perceptibility/conspicuity label it carries, label provenance, size, access/licensing, tier, caveats (including all preserved &quot;verify directly before relying on&quot; flags), and a one-line relevance-to-detectability.</li>
+  <li><strong><code>notes/follow-ups.md</code></strong> — the top-3 follow-ups (CheXthought; JSRT+LNDb external-validation pairing; CBIS-DDSM → OPTIMAM mammography) and the major MR-subtlety gap, plus the other surveyed gaps.</li>
+  <li><strong><code>resources/sources.md</code></strong> — links/citations for each dataset&#x27;s source page.</li>
+</ul>
+<h2>Provenance</h2>
+<p>Built by restructuring the completed survey in <code>research-output.md</code> (from <code>nodule-detectability</code>&#x27;s task-rounding project). No re-research from scratch; every &quot;verify directly before relying on&quot; caveat from the original survey is preserved on the relevant dataset page. Datasets and labels are reported only as they appear in the source survey.</p>
+<h2>Note on the bootstrap template</h2>
+<p>This repo was scaffolded from the generic <code>knowledge-base</code> study template, so <code>BOOTSTRAP.md</code>, <code>CLAUDE.md</code>, <code>scripts/</code>, <code>study/</code>, and <code>review/</code> describe a spaced-repetition study system rather than this dataset reference. Those files are left as-provided per the dispatch spec&#x27;s MUST-NOT-touch list. The authoritative structure for this repo is <code>index.md</code> + <code>datasets/</code> + <code>notes/</code> + <code>resources/sources.md</code> + this summary.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

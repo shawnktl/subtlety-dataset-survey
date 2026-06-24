@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Follow-ups — highest-leverage next moves — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a href="../index.html#datasets">Datasets</a>
+    <a class="active" href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>Follow-ups — highest-leverage next moves</h1>
+<p>From the survey&#x27;s recommendations, in priority order. See <code>index.md</code> for the full tiered landscape and each dataset&#x27;s page for caveats.</p>
+<hr>
+<h2>1. CheXthought (Stanford AIMI) — pursue first</h2>
+<p>By far the most directly aligned new asset for the broader detectability framing. Chain-of-thought reasoning + visual attention + multi-reader disagreement at 50k-CXR / 501-radiologist scale operationalizes &quot;perceptibility&quot; as a <em>behavior</em>, not just a label.</p>
+<p>Concrete moves:</p>
+<ul>
+  <li>Verify dataset availability and license terms directly on the Stanford AIMI portal (https://stanfordaimi.azurewebsites.net/).</li>
+  <li>If non-commercial download is open: pull a sample, inspect the per-image inter-reader disagreement distribution, and assess whether the LIDC-trained detectability framing (MAE-band / k-NN) maps onto a comparable CXR-difficulty model.</li>
+  <li>If commercial use is in scope (patent-lawyer thread): note the $70k/yr/dataset licensing cost in any product framing.</li>
+</ul>
+<p><strong>Verify before relying on:</strong> referenced details come from the arXiv preprint (arXiv:2604.26288) and a third-party blog. Confirm directly on the Stanford AIMI portal that the dataset is downloadable and that the chain-of-thought + visual attention components are included in the public release (not held back for commercial license).</p>
+<hr>
+<h2>2. JSRT + LNDb pairing — natural external-validation route</h2>
+<p>JSRT (CXR, 5-level subtlety, ~250 cases) and LNDb (CT, LIDC-style subtlety, 294 cases) together provide the cleanest cross-modality external-validation pair for a subtlety classifier trained on LIDC. Both have direct subtlety labels — no proxy required.</p>
+<p>Concrete move: Run the existing LIDC-trained pipeline on LNDb first (closest match — same modality, same labeling scheme); then port to JSRT as a modality-transfer test.</p>
+<p><strong>Verify before relying on (LNDb):</strong> &quot;each scan read by ≥1 radiologist&quot; implies uneven multi-reader coverage. Verify before using LNDb as a multi-rater dataset.</p>
+<hr>
+<h2>3. CBIS-DDSM → OPTIMAM — second modality (mammography) with subtlety labels in hand</h2>
+<p>CBIS-DDSM has the actual 1–5 subtlety field; VinDr-Mammo doesn&#x27;t (but has multi-reader arbitration as proxy). To test whether the detectability framing generalizes to mammography:</p>
+<ul>
+  <li>Start with CBIS-DDSM (direct subtlety, easier mapping) for a feasibility check.</li>
+  <li>If results look promising, OPTIMAM is the natural next step for scale — but the DUA / licensing friction is meaningful and should be entered into deliberately.</li>
+</ul>
+<p><strong>Verify before relying on (OPTIMAM):</strong> whether conspicuity annotations cover the DBT subset (~4,500 women) uniformly is not stated in public materials.</p>
+<hr>
+<h2>Major gap — MR with explicit subtlety/conspicuity labels</h2>
+<p><strong>None located.</strong> A purpose-built subtlety-rated MR dataset (any anatomy) does not appear to exist publicly. Best available signal is multi-rater segmentation variability:</p>
+<ul>
+  <li><strong>BraTS</strong> (brain glioma) — inter-rater DSC 0.74–0.85.</li>
+  <li><strong>OAI</strong> knee MRI — KL/MOAKS grading disagreement; BML grade-1 lesions hard to distinguish from partial-volume artifact.</li>
+  <li><strong>ISBI/MS multi-rater</strong> MS lesion segmentation — documented intra/inter-rater variability.</li>
+</ul>
+<p>This gap is the clearest &quot;the detectability framing may be nodule/CT-specific&quot; risk for the broader product framing — there is no off-the-shelf MR subtlety ground truth to validate against.</p>
+<hr>
+<h2>Other gaps (from the survey)</h2>
+<ul>
+  <li><strong>Cross-modality &quot;missed-on-prior&quot; labeling:</strong> no packaged dataset surfaces a per-finding &quot;missed on prior study&quot; label. NLST missed-cancer subset is closest but requires reconstruction.</li>
+  <li><strong>Pediatric imaging:</strong> no subtlety-labeled pediatric dataset surfaced.</li>
+  <li><strong>Abdominal cross-sectional (CT/MR):</strong> DeepLesion is the closest adult CT dataset but has no per-lesion subtlety.</li>
+  <li><strong>Vascular / acute stroke or PE:</strong> RSNA PE has QA flags but no per-PE conspicuity rating; stroke datasets have segmentation difficulty but no perceptibility label.</li>
+  <li><strong>Dental, ultrasound, nuclear medicine:</strong> effectively no subtlety-labeled public data found.</li>
+</ul>
+<hr>
+<h2>Optional / opportunistic</h2>
+<ul>
+  <li>REFLACX as a &quot;perceptibility-as-behavior&quot; exploratory dataset — gaze dwell on subtle findings is intriguing as a feature.</li>
+  <li>Reach out to LNDb authors (CHUSJ / FCT project) about whether per-reader divergence on subtlety ratings is preserved in the data release.</li>
+</ul>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

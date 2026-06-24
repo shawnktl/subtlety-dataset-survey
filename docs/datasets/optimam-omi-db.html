@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OPTIMAM (OMI-DB) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>OPTIMAM (OMI-DB)</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label</li>
+  <li><strong>Modality / anatomy:</strong> FFDM, DBT (subset), MRI (smaller subset) / breast lesions</li>
+  <li><strong>Finding type:</strong> Breast lesions (masses)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Per-lesion ROIs include radiological appearance and <strong>conspicuity</strong> rating, plus BI-RADS. Mass conspicuity is one of the explicit categorization fields.</p>
+<h2>Label provenance</h2>
+<p>Annotated subset (not all images carry conspicuity ratings).</p>
+<h2>Size</h2>
+<p>Very large — 1,311,413 studies from 465,000+ women, ~7M images. DBT for ~4,500 women.</p>
+<h2>Access / licensing</h2>
+<p>Restricted / DUA via Cancer Research Horizons (commercial and academic licensing). <a href="https://www.cancerresearchhorizons.com/our-portfolio/our-licensing-opportunities/optimam-mammography-image-database-omi-db">https://www.cancerresearchhorizons.com/our-portfolio/our-licensing-opportunities/optimam-mammography-image-database-omi-db</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Not freely downloadable; access requires application + DUA.</li>
+  <li>Conspicuity coverage is on the annotated subset, not all images.</li>
+  <li><strong>Verify before relying on:</strong> the DBT subset (~4,500 women) is much smaller than the FFDM core. Whether conspicuity annotations cover the DBT subset uniformly is not stated in public materials.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Direct conspicuity label at substantial scale. Natural scale-up after CBIS-DDSM for mammography — but access friction is real.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
