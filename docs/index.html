@@ -12,6 +12,7 @@
   <nav>
     <a class="active" href="index.html">Index</a>
     <a href="index.html#datasets">Datasets</a>
+    <a href="subsections/lung-nodules.html">Lung nodules</a>
     <a href="notes/follow-ups.html">Follow-ups</a>
     <a href="resources/sources.html">Sources</a>
     <a href="project-summary.html">Project summary</a>
@@ -21,6 +22,7 @@
 <p class="subtitle">Tier-ranked index of 59 public radiology datasets with subtlety / perceptibility / conspicuity signal.</p>
 <h1>Subtlety / Perceptibility Dataset Index</h1>
 <p>Tier-ranked index of 59 public radiology datasets surveyed for <strong>subtlety / perceptibility / conspicuity signal</strong> — read broadly: explicit subtlety/conspicuity labels, multi-reader disagreement designs, miss-rate / perceptual-error studies, eye-tracking/gaze datasets, difficulty-stratified subsets, and datasets whose <em>finding is canonically subtle/hard-to-detect</em> (early ischemic change, small ICH, subtle fractures, small PE, small mets, PDAC). Originally a chest/breast-dominated set of 26 (built from the survey in <code>nodule-detectability</code>&#x27;s task-rounding project); a 2026-06-24 discovery sweep widened the net to cover neuro (esp. stroke), abdomen/body, and other under-represented regions. See <code>PROJECT_SUMMARY.md</code> for scope, <code>notes/follow-ups.md</code> for next moves, and <code>notes/search-strategy.md</code> for the discovery method/log.</p>
+<p><strong>Curated subsection:</strong> <a href="subsections/lung-nodules.html">Lung-nodule (segmented) external-validation menu</a> — the survey datasets with <strong>segmented</strong> lung nodules (masks, not bbox/classification), carved out as the candidate set for external validation of the LIDC-trained <code>nodule-detectability</code> classifier.</p>
 <h2>Tiering</h2>
 <ul>
   <li><strong>Tier A — Direct subtlety/perceptibility/conspicuity (or per-exam difficulty/quality) labels.</strong> A dataset carries an explicit numeric or categorical subtlety/conspicuity/difficulty field.</li>
