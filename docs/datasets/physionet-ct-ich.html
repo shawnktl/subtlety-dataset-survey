@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhysioNet CT-ICH (Hssayeni et al.) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>PhysioNet CT-ICH (Hssayeni et al.)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding; two-reader consensus, disagreement not preserved)</li>
+  <li><strong>Modality / anatomy:</strong> Non-contrast head CT (NCCT) / brain (TBI cohort)</li>
+  <li><strong>Finding type:</strong> ICH detection + segmentation (5 subtypes: IVH, IPH, SAH, EDH, SDH) + skull fracture</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Small/thin hemorrhages are canonically subtle, and the dataset provides voxel-level masks (rare for ICH); but annotation was done by two-radiologist consensus with disagreement resolved (not preserved per-rater).</p>
+<h2>Label provenance</h2>
+<p>Each slice annotated by <strong>2 radiologists, reconciled to consensus</strong> (per-rater not separately released).</p>
+<h2>Size</h2>
+<p>82 CT scans total; 36 with diagnosed ICH (~30 slices each).</p>
+<h2>Access / licensing</h2>
+<p>Open access, <strong>CC BY 4.0</strong>, freely downloadable. <a href="https://physionet.org/content/ct-ich/">https://physionet.org/content/ct-ich/</a> (current version 1.3.1).</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Small (82 scans).</li>
+  <li>Consensus only — no preserved inter-rater disagreement.</li>
+  <li>TBI-skewed cohort.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A small but clean, openly-licensed ICH segmentation set with voxel-level masks on a canonically subtle finding — useful as a portable hemorrhage substrate, though it carries neither an explicit subtlety label nor preserved disagreement (for that, see CQ500).</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

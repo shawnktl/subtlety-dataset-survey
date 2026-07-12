@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIDRC / RICORD — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>MIDRC / RICORD</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy)</li>
+  <li><strong>Modality / anatomy:</strong> CXR (+ CT) / COVID severity</li>
+  <li><strong>Finding type:</strong> COVID severity scoring (modified RALE)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No perceptibility rating per se; reader divergence per image behaves as a difficulty proxy. Modified RALE scoring scheme.</p>
+<h2>Label provenance</h2>
+<p>Each image read by <strong>3 physicians</strong> for COVID severity; majority/average used as label. Reader divergence per image is preserved as the labeling input.</p>
+<h2>Size</h2>
+<p>Tens of thousands of COVID cases across MIDRC contributing institutions.</p>
+<h2>Access / licensing</h2>
+<p>Open via the MIDRC portal (registration + DUA). <a href="https://www.midrc.org/">https://www.midrc.org/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Severity scoring is closer to a clinical-condition rating than a perceptibility rating — but reader divergence behaves as a difficulty proxy.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Multi-reader severity scoring with explicit per-reader divergence available in some subsets.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

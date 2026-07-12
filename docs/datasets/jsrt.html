@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSRT Standard Digital Image Database — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>JSRT Standard Digital Image Database</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label</li>
+  <li><strong>Modality / anatomy:</strong> Conventional CXR (digitized film, 2048×2048) / pulmonary nodules</li>
+  <li><strong>Finding type:</strong> Pulmonary nodules (malignant + benign)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Nodules classified into <strong>5 subtlety levels</strong> by radiologist consensus. ROC analysis from the original paper validated meaningful separation across subtlety bins (Az 0.574–0.991 across the 5 categories).</p>
+<h2>Label provenance</h2>
+<p>Radiologist <strong>consensus</strong> (not per-reader).</p>
+<h2>Size</h2>
+<p>247 CXRs total — 154 with nodules (100 malignant, 54 benign), 93 normals.</p>
+<h2>Access / licensing</h2>
+<p>Open via the JSRT site (registration). <a href="http://db.jsrt.or.jp/eng.php">http://db.jsrt.or.jp/eng.php</a>. DICOM-format version also distributed by the JSRT image working group.</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Small by modern standards.</li>
+  <li>Film-digitized, not native digital.</li>
+  <li>Subtlety is <strong>consensus</strong> (not per-reader), so reader-disagreement signal is not preserved.</li>
+  <li>Decades-old but widely cited (~800+).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Direct subtlety label; canonical CXR perceptibility benchmark. Natural modality-transfer test for an LIDC-trained subtlety classifier.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

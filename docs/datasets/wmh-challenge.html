@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WMH Segmentation Challenge (2017) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>WMH Segmentation Challenge (2017)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (additional observers&#x27; per-rater masks preserved)</li>
+  <li><strong>Modality / anatomy:</strong> Brain MRI (FLAIR + T1) / white matter</li>
+  <li><strong>Finding type:</strong> White matter hyperintensities of presumed vascular origin</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but WMH are canonically subtle, small, low-contrast foci — and <strong>all 60 training cases carry independent manual masks from two additional observers (O3 and O4) beyond the reference standard, released alongside the data</strong>, so per-rater disagreement is preserved. Reported inter-observer Dice ~0.79–0.80, and top automatic methods perform on par with individual human observers — i.e. the disagreement signal is real and quantified.</p>
+<h2>Label provenance</h2>
+<p>Reference standard delineated under expert supervision (UMC Utrecht / NUHS Singapore / VU Amsterdam); two <em>additional</em> independent observers (O3, O4) manually segmented all training cases. Per-rater masks released, not just consensus.</p>
+<h2>Size</h2>
+<p>60 training subjects (3 scanners) + 110 test subjects (5 scanners) = 170 total. FLAIR + T1 + ground-truth mask per subject.</p>
+<h2>Access / licensing</h2>
+<p>Fully open, <strong>no registration</strong>. CC-BY-NC-4.0. Hosted on DataverseNL (8.2 GB zip; includes training data, test data, reference + additional-observer annotations). Challenge: <a href="https://wmh.isi.uu.nl/">https://wmh.isi.uu.nl/</a> ; data: <a href="https://doi.org/10.34894/AECRSD">https://doi.org/10.34894/AECRSD</a> ; paper: Kuijf et al., <em>IEEE TMI</em> 2019, <a href="https://pubmed.ncbi.nlm.nih.gov/30908194/">https://pubmed.ncbi.nlm.nih.gov/30908194/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Additional-observer masks cover the <strong>training set only</strong> (test masks held by organizers).</li>
+  <li>License is non-commercial.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A small-vessel-disease analogue to the MS multi-rater sets: extra independent observer masks on canonically subtle WMH foci give a clean per-rater-disagreement difficulty proxy on brain MRI, with the bonus that it is one-click open (no DUA).</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

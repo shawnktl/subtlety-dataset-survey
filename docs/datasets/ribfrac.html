@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RibFrac — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>RibFrac</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically missed finding + subtype labels; ambiguous masks)</li>
+  <li><strong>Modality / anatomy:</strong> Chest-abdomen CT / ribs</li>
+  <li><strong>Finding type:</strong> Traumatic rib fractures — buckle, nondisplaced, displaced, segmental (instance segmentation + classification)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field, but rib fractures (especially nondisplaced/buckle) are among the most commonly missed CT/CXR findings; the dataset separates these subtle subtypes, and the authors note the masks are &quot;noisy&quot; because fracture boundaries are genuinely ambiguous — perceptibility is hard even for the annotators.</p>
+<h2>Label provenance</h2>
+<p>Voxel-level masks by radiologists via a human-in-the-loop pipeline; annotator count not disclosed <code>[VERIFY]</code>.</p>
+<h2>Size</h2>
+<p>660 CT scans (~5,000 fractures): 420 train (all positive), 80 val (20 fracture-free), 160 test.</p>
+<h2>Access / licensing</h2>
+<p>Public, <strong>CC BY-NC 4.0</strong>. Zenodo: train <a href="https://zenodo.org/records/3893508">https://zenodo.org/records/3893508</a>, val <a href="https://zenodo.org/records/3893496">https://zenodo.org/records/3893496</a>, test <a href="https://zenodo.org/records/3993379">https://zenodo.org/records/3993379</a>. Grand Challenge registration for leaderboard only; Zenodo data openly downloadable. Paper: <a href="https://arxiv.org/abs/2402.09372">https://arxiv.org/abs/2402.09372</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Non-commercial license; single-center.</li>
+  <li>Test ships images only (no public masks).</li>
+  <li>Annotator count undisclosed <code>[VERIFY]</code>; noisy/ambiguous masks acknowledged.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A subtype-labeled rib-fracture set where the annotators themselves flag boundary ambiguity — a candidate for studying perceptibility on a canonically missed finding, with the subtype split (buckle/nondisplaced vs displaced) doubling as a coarse difficulty proxy.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

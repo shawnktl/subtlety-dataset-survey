@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISLES 2022 — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ISLES 2022</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy) + deliberate subtle-lesion inclusion</li>
+  <li><strong>Modality / anatomy:</strong> Multi-modal MRI (DWI b=1000, ADC, FLAIR) / brain — acute &amp; sub-acute ischemic stroke lesion</li>
+  <li><strong>Finding type:</strong> Ischemic infarct lesion (segmentation)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but two genuine difficulty signals: (1) the dataset <strong>intentionally includes &quot;punctiform infarcts&quot;</strong> from embolic patterns, explicitly flagged in the data paper as time-consuming to annotate and frequently overlooked by algorithms — a deliberate small/subtle-lesion difficulty inclusion; and (2) a documented inter-rater study (two expert neuroradiologists, 16+ and 10+ yr, on 10 cases) quantifying disagreement. Multi-vendor / multi-field-strength (Philips 3T; Siemens 3T and 1.5T) across 3 centers adds real scanner variability.</p>
+<h2>Label provenance</h2>
+<p>Hybrid pipeline: 3D U-Net pre-segmentation → trained medical students edit → neuroradiology resident revision → final approval by 1 of 3 senior neuroradiologists (&gt;10 yr each). Inter-rater analysis on 10 cases. Released ground truth = single expert-approved mask (not independent per-rater masks).</p>
+<h2>Size</h2>
+<p>400 cases total; 250 training (public) / 150 test (withheld).</p>
+<h2>Access / licensing</h2>
+<p>Open — training set (n=250) under CC-BY-4.0 on Zenodo (DOI 10.5281/zenodo.7153326). Challenge: <a href="https://isles22.grand-challenge.org/">https://isles22.grand-challenge.org/</a> ; data paper: Hernandez Petzsche et al., <em>Scientific Data</em> 2022, <a href="https://www.nature.com/articles/s41597-022-01875-5">https://www.nature.com/articles/s41597-022-01875-5</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Inter-rater agreement was measured on only 10 cases and is not distributed as per-case disagreement labels; the final release is consensus-style single masks, so reader disagreement is <em>documented</em> but not <em>preserved per-case</em>.</li>
+  <li>The subtlety signal (punctiform infarcts) is described in the paper, not provided as a per-lesion label.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The flagship modern ischemic-stroke MRI benchmark, and the most useful ISLES edition for detectability: its authors deliberately retained the small/subtle punctiform lesions most pipelines drop, and measured inter-reader agreement explicitly. The closest stroke-MRI analogue to a difficulty-stratified subset.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

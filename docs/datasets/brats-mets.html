@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BraTS-METS (2023) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>BraTS-METS (2023)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle small-lesion finding; consensus labels)</li>
+  <li><strong>Modality / anatomy:</strong> Brain multiparametric MRI (T1, T2, FLAIR, T1-post-Gd) / brain — metastases</li>
+  <li><strong>Finding type:</strong> Untreated brain metastases (pre-treatment), small-lesion segmentation</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Small brain metastases are canonically subtle and easily missed; the set covers <strong>3,076 lesions across 402 public studies</strong>, many small. Annotation is a layered human pipeline rather than independent per-rater masks, so the signal is canonical subtlety, not preserved disagreement.</p>
+<h2>Label provenance</h2>
+<p>Stepwise: UNet pre-segmentation → annotator → 1–2 board-certified neuroradiologists → single senior neuroradiologist QC. Pool of ~150 annotators + 50 attendings (ASNR). Final single consensus per case.</p>
+<h2>Size</h2>
+<p>402 public training studies (3,076 lesions); +31 validation (139 lesions), +59 test (218 lesions) held out.</p>
+<h2>Access / licensing</h2>
+<p>Public training set on <strong>Synapse</strong> (registration / Synapse account + challenge data terms). Validation/test labels withheld. Paper: Moawad et al., &quot;BraTS-METS Challenge 2023,&quot; arXiv:2306.00838, <a href="https://arxiv.org/abs/2306.00838">https://arxiv.org/abs/2306.00838</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Only training labels public; consensus annotation (no per-rater disagreement masks).</li>
+  <li>Registration required.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Extends the BraTS family into the small-metastasis regime — the canonical &quot;don&#x27;t miss the tiny enhancing lesion&quot; detectability problem in brain MRI. Useful as a difficulty-stratifiable (by lesion size/count) mets corpus, paired with UCSF-BMSR for scale.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

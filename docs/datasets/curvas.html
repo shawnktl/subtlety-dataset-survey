@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CURVAS (MultiRater MultiOrgan Abdominal CT) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CURVAS (MultiRater MultiOrgan Abdominal CT)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (per-rater masks preserved)</li>
+  <li><strong>Modality / anatomy:</strong> Contrast-enhanced abdominal CT / pancreas, kidney, liver</li>
+  <li><strong>Finding type:</strong> Multi-organ segmentation (organ boundaries)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No lesion/conspicuity label — qualifies purely on the disagreement axis, and strongly so. CURVAS is built explicitly around inter-rater disagreement and model calibration: each scan has <strong>three independent expert-radiologist segmentations preserved as separate files</strong>, and the associated MICCAI 2024 challenge is the first to benchmark segmentation accuracy <em>and</em> calibration <em>under</em> multi-rater uncertainty rather than fusing labels. Pancreas boundary disagreement is the canonical hard case.</p>
+<h2>Label provenance</h2>
+<p>3 expert radiologists per case; per-rater annotations preserved (not consensus-only).</p>
+<h2>Size</h2>
+<p>90 contrast-enhanced CT scans (University Hospital Erlangen, Aug–Oct 2023).</p>
+<h2>Access / licensing</h2>
+<p>Open. Nature <em>Scientific Data</em> descriptor s41597-025-06473-9 (2025): <a href="https://www.nature.com/articles/s41597-025-06473-9">https://www.nature.com/articles/s41597-025-06473-9</a> ; data via Zenodo / curvas.grand-challenge.org; challenge results: <a href="https://arxiv.org/abs/2505.08685">https://arxiv.org/abs/2505.08685</a> . License <code>[VERIFY exact tag — CC BY vs CC BY-NC-SA across sources]</code>.</p>
+<h2>Caveats</h2>
+<ul>
+  <li>This is the dataset <strong>behind the CURVAS challenge</strong> — the Nature data descriptor and the challenge describe the same 90-scan cohort; one record, not two.</li>
+  <li>Organ segmentation only — no lesion / perceptibility label; qualifies solely on the multi-rater disagreement axis.</li>
+  <li>See <strong>CURVAS-PDACVI</strong> for the larger-rater-count PDAC extension.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>A purpose-built multi-rater-disagreement / calibration substrate for abdominal CT — exactly the &quot;how much do experts diverge, and is the model calibrated to that?&quot; signal the detectability framing needs, on organs (esp. pancreas) where boundary perception genuinely differs reader-to-reader.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

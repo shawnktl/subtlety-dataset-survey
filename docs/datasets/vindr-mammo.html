@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VinDr-Mammo — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>VinDr-Mammo</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (difficulty proxy)</li>
+  <li><strong>Modality / anatomy:</strong> FFDM / masses, calcifications, asymmetries, distortions</li>
+  <li><strong>Finding type:</strong> Breast lesions</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No per-finding subtlety field; multi-reader arbitration as a difficulty proxy. BI-RADS assessment + density + lesion-level bounding boxes.</p>
+<h2>Label provenance</h2>
+<p>5,000 four-view exams, <strong>double-read with arbitration by a third reader.</strong></p>
+<h2>Size</h2>
+<p>5,000 exams (20k images).</p>
+<h2>Access / licensing</h2>
+<p>Open via PhysioNet (credentialed). <a href="https://physionet.org/content/vindr-mammo/1.0.0/">https://physionet.org/content/vindr-mammo/1.0.0/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li><strong>Verify before relying on:</strong> arbitration means only the resolved label is published — original per-reader divergence may or may not be preserved. Documentation describes &quot;double read with arbitration&quot; but it&#x27;s unclear whether the two pre-arbitration labels are released or only the consensus. Verify on the PhysioNet schema before relying on it as a multi-rater dataset.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Multi-reader with arbitration; not a per-finding subtlety field but a usable difficulty proxy.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

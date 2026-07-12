@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSSEG-2016 (MICCAI 2016 MS Lesion Segmentation) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>MSSEG-2016 (MICCAI 2016 MS Lesion Segmentation)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (7 raters, per-rater masks preserved)</li>
+  <li><strong>Modality / anatomy:</strong> Brain MRI (3D FLAIR, T1 pre/post-Gd, axial dual PD-T2) / white matter</li>
+  <li><strong>Finding type:</strong> Multiple sclerosis lesions (hyperintense on FLAIR)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but the <strong>gold-standard multi-rater case in the survey</strong>: each of the 53 cases was manually delineated by <strong>7 expert raters, with all 7 per-rater masks released</strong> alongside a derived consensus ground truth — genuine, large inter-rater disagreement. Per-expert-vs-consensus Dice fluctuates 69–77%, and the challenge paper documents automatic methods still trailing human inter-expert agreement. Small/peripheral MS lesions are canonically subtle.</p>
+<h2>Label provenance</h2>
+<p>7 independent expert human raters per case (lesions delineated on FLAIR, controlled on T2), plus a derived consensus GT. Per-rater AND consensus masks both available.</p>
+<h2>Size</h2>
+<p>53 patients total (15 train / 38 test), 4 centers/scanners, harmonized protocol.</p>
+<h2>Access / licensing</h2>
+<p>Public via the <strong>Shanoir</strong> platform; <strong>registration + signed data-usage agreement required</strong> (GDPR-compliant). Not a one-click download. Paper: Commowick et al., &quot;Multiple sclerosis lesions segmentation from multiple experts: The MICCAI 2016 challenge dataset,&quot; <em>NeuroImage</em> 2021, <a href="https://www.sciencedirect.com/science/article/pii/S1053811921008624">https://www.sciencedirect.com/science/article/pii/S1053811921008624</a> (also <em>Sci Rep</em> 2018: <a href="https://www.nature.com/articles/s41598-018-31911-7">https://www.nature.com/articles/s41598-018-31911-7</a>)</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Access gated behind DUA / registration (not anonymous-open). EU GDPR terms apply.</li>
+  <li>Small case count (53).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The strongest preserved-per-rater multi-rater dataset of any modality in this survey — 7 independent expert delineations per case directly quantify how much experts diverge on subtle MS lesions. The reference substrate for &quot;what does human-level disagreement look like&quot; in brain MRI, and a strong external test of whether the detectability framing maps onto MR.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

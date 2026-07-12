@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KiTS21 (2021 Kidney Tumor Segmentation Challenge) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>KiTS21 (2021 Kidney Tumor Segmentation Challenge)</h1>
+<ul>
+  <li><strong>Tier:</strong> B — reader-disagreement / multi-rater design (three independent per-ROI annotations preserved)</li>
+  <li><strong>Modality / anatomy:</strong> Corticomedullary-phase contrast-enhanced CT / kidneys — renal masses</li>
+  <li><strong>Finding type:</strong> Renal tumor + renal cyst (with kidney segmentation)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No numeric subtlety field, but the strongest abdominal disagreement signal in the survey: KiTS21 introduced a <strong>novel multi-annotation protocol collecting three independent annotations per region of interest</strong> (kidney, tumor, cyst), each delineation done transparently via a public web tool. Because three independent delineations exist per ROI, inter-rater variability is captured rather than fused away — and renal cyst-vs-tumor boundaries and small-mass margins are exactly where readers disagree.</p>
+<h2>Label provenance</h2>
+<p>3 independent expert annotators per ROI. The released <code>aggregated_*</code> masks combine the three, but the <strong>three separate delineations are themselves released</strong>, so per-rater disagreement is recoverable. <code>[VERIFY]</code> the canonical aggregation method (majority-vote vs sampling).</p>
+<h2>Size</h2>
+<p>300 publicly released training cases; 100 held-out (non-public) test cases.</p>
+<h2>Access / licensing</h2>
+<p>Open; training data public. kits-challenge.org / GitHub (neheller/kits21). <a href="https://kits-challenge.org/kits21/">https://kits-challenge.org/kits21/</a> ; paper: <a href="https://arxiv.org/abs/2307.01984">https://arxiv.org/abs/2307.01984</a> . License CC BY-NC-SA per challenge terms <code>[VERIFY exact tag]</code>.</p>
+<h2>Caveats</h2>
+<ul>
+  <li>Test set private; the per-rater structure is in training cases only.</li>
+  <li><code>[VERIFY]</code> exact label-aggregation method and license tag.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The cleanest preserved-per-rater multi-annotation set in the body region: three independent delineations per ROI make it a direct kidney analogue of the chest multi-rater label-vector datasets (VinDr-CXR, MURA), usable to derive a region-level difficulty/ambiguity proxy from genuine inter-expert disagreement.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CBIS-DDSM — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CBIS-DDSM</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label</li>
+  <li><strong>Modality / anatomy:</strong> Screen-film mammography (curated, DICOM-converted) / masses and calcifications</li>
+  <li><strong>Finding type:</strong> Breast masses and calcifications</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>Per-lesion <strong>subtlety rating 1–5</strong> (1 = subtle, 5 = obvious). Also: BI-RADS descriptors (mass shape/margin, calcification type/distribution), breast density, BI-RADS assessment 0–5, pathologic outcome.</p>
+<h2>Label provenance</h2>
+<p>Subtlety labels originate from the original DDSM annotators; curated by a trained mammographer.</p>
+<h2>Size</h2>
+<p>~2,620 cases (subset of the original DDSM ~10k cases).</p>
+<h2>Access / licensing</h2>
+<p>Open via TCIA. <a href="https://www.cancerimagingarchive.net/collection/cbis-ddsm/">https://www.cancerimagingarchive.net/collection/cbis-ddsm/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Subtlety labels originate from the original DDSM annotators; rater count per lesion not always per-reader-resolved.</li>
+  <li>Film-digitized — not FFDM.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Direct subtlety label, large enough for modeling. First-choice feasibility check for porting the detectability framing to mammography.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

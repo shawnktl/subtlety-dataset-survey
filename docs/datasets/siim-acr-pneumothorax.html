@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIIM-ACR Pneumothorax — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>SIIM-ACR Pneumothorax</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent only</li>
+  <li><strong>Modality / anatomy:</strong> CXR / pneumothorax</li>
+  <li><strong>Finding type:</strong> Pneumothorax (pixel-level masks)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p><strong>No explicit subtlety/conspicuity label</strong> in the published dataset. Pneumothorax detection is a classic perceptual-difficulty domain (apical/small PTX often missed), but difficulty has to be inferred from mask size / location, not labeled.</p>
+<h2>Label provenance</h2>
+<p>Pixel-level RLE masks.</p>
+<h2>Size</h2>
+<p>12,047 images.</p>
+<h2>Access / licensing</h2>
+<p>Open via Kaggle. <a href="https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation">https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Difficulty has to be inferred from mask size / location, not labeled.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Adjacent only.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

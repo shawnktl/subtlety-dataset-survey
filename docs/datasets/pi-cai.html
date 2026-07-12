@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PI-CAI — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>PI-CAI</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / indirect signal (best modern prostate MRI dataset)</li>
+  <li><strong>Modality / anatomy:</strong> Multiparametric prostate MRI (T2W + ADC + DWI) / clinically significant prostate cancer</li>
+  <li><strong>Finding type:</strong> Clinically significant prostate cancer lesions</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety label per lesion. PI-RADS-style ambiguities (DCE enhancement criteria, etc.) exist but aren&#x27;t surfaced as a per-lesion confidence field.</p>
+<h2>Label provenance</h2>
+<p>Expert-derived lesion delineations on ~80% of cases. Histopathology + Gleason/ISUP as ground truth. Builds on PROSTATEx; superseded it.</p>
+<h2>Size</h2>
+<p>10,000+ exams.</p>
+<h2>Access / licensing</h2>
+<p>Open via Grand Challenge (challenge data) + DUA-gated. <a href="https://pi-cai.grand-challenge.org/">https://pi-cai.grand-challenge.org/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>No explicit subtlety label per lesion.</li>
+  <li>Disagreement signal is indirect (PI-RADS vs histology).</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Best available modern prostate MRI dataset, but disagreement signal is indirect.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

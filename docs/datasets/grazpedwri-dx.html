@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAZPEDWRI-DX — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>GRAZPEDWRI-DX</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically occult fractures + secondary-sign labels)</li>
+  <li><strong>Modality / anatomy:</strong> Plain X-ray / pediatric wrist &amp; distal forearm</li>
+  <li><strong>Finding type:</strong> 9 classes — fracture, periosteal reaction, bone anomaly, bone lesion, metal, foreign body, pronator sign, soft tissue, axis</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field, but pediatric wrist fractures include canonically missed entities (buckle/torus, subtle distal radius), and the dataset explicitly labels <strong>secondary/indirect signs</strong> — pronator quadratus sign, periosteal reaction — as their own classes. Those are precisely the cues radiologists rely on when the fracture line itself is occult, making this an unusually perceptibility-aware annotation scheme.</p>
+<h2>Label provenance</h2>
+<p>Annotated by radiologists, visiting colleagues, and medical students; all annotations validated by 3 board-certified pediatric radiologists (Supervisely). Validation/consensus-reviewed, not per-rater independent.</p>
+<h2>Size</h2>
+<p>20,327 images; 10,643 studies; 6,091 patients; 67,771 annotated objects.</p>
+<h2>Access / licensing</h2>
+<p>Public, CC BY 4.0. Figshare DOI 10.6084/m9.figshare.14825193 (~15.2 GB). YOLO + Pascal VOC. Paper: <a href="https://www.nature.com/articles/s41597-022-01328-z">https://www.nature.com/articles/s41597-022-01328-z</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Single-center (Graz, 2008–2018).</li>
+  <li>Mixed annotators (incl. students) with expert validation — not a multi-reader-disagreement design.</li>
+  <li>No per-image subtlety grade; pediatric-only.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>One of the few detection datasets that annotates the <em>secondary signs</em> of an occult finding as distinct classes — a direct, large-scale handle on the &quot;the fracture is invisible but the soft-tissue/periosteal cue isn&#x27;t&quot; perceptibility problem in pediatric MSK.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

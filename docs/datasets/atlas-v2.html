@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATLAS v2.0 — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>ATLAS v2.0</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (documented small-lesion difficulty gradient; segmentation-only)</li>
+  <li><strong>Modality / anatomy:</strong> T1-weighted MRI / brain — chronic stroke lesion</li>
+  <li><strong>Finding type:</strong> Chronic stroke lesion (segmentation)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety label, but the authors document a <strong>difficulty gradient</strong>: methods &quot;performed the worst on small, followed by medium, lesions,&quot; and the paper suggests a future challenge focused on small-lesion detection. Large (1,271 scans), heterogeneous, multi-cohort — high variability. The signal is a documented small-lesion difficulty, not a per-lesion label.</p>
+<h2>Label provenance</h2>
+<p>Trained team using ITK-SNAP under a standardized protocol; <strong>single consensus mask per subject</strong>, each QC-checked by two trained members. No multiple independent per-case masks in this release (an inter-rater subset is explicitly deferred to a future release).</p>
+<h2>Size</h2>
+<p>1,271 T1w MRIs total → 655 public train (with masks) + 300 public test (masks hidden) + 316 hidden generalizability set.</p>
+<h2>Access / licensing</h2>
+<p>Open with a Data Use Agreement. Preprocessed via INDI/NITRC; raw native-space via ICPSR/ADDEP (DOI 10.3886/ICPSR36684.v4). <a href="https://atlas.grand-challenge.org/">https://atlas.grand-challenge.org/</a> ; <a href="https://www.icpsr.umich.edu/web/ICPSR/studies/36684">https://www.icpsr.umich.edu/web/ICPSR/studies/36684</a> ; paper: Liew et al., <em>Scientific Data</em> 2022, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9203460/">https://pmc.ncbi.nlm.nih.gov/articles/PMC9203460/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Single-rater consensus design → <strong>no preserved inter-rater disagreement</strong> in the public release (explicitly a future-release goal).</li>
+  <li>Chronic lesions are generally less subtle than acute; subtlety signal is limited to the documented small-lesion difficulty, not a per-lesion label.</li>
+  <li>Requires DUA.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The largest public stroke-lesion MRI set, with an author-documented &quot;small lesions are hardest&quot; difficulty gradient — useful as a scale benchmark and a difficulty-stratifiable (by lesion size) corpus, though it carries no explicit perceptibility label.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

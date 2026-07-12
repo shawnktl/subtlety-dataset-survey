@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADA (Cerebral Aneurysm Detection And Analysis) — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CADA (Cerebral Aneurysm Detection And Analysis)</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (canonically subtle finding; extreme detection imbalance)</li>
+  <li><strong>Modality / anatomy:</strong> 3D rotational X-ray angiography (3DRA / 3D-DSA) / cerebral vasculature</li>
+  <li><strong>Finding type:</strong> Cerebral aneurysms — detection, segmentation, and rupture-risk estimation (3 tasks)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No explicit subtlety field. Extreme foreground/background imbalance (mean aneurysm volume 0.391 mL vs image volumes 280–2,350 mL) makes small aneurysms a canonical hard-detection problem; cohort is suspected-SAH patients. Difficulty is structural, not a labeled perceptibility axis.</p>
+<h2>Label provenance</h2>
+<p>Expert annotations of aneurysms on 3DRA. <code>[VERIFY]</code> rater count / consensus.</p>
+<h2>Size</h2>
+<p>109 training datasets with 127 annotated aneurysms + 22 test datasets (cohort of 115 patients).</p>
+<h2>Access / licensing</h2>
+<p>Open via Grand Challenge registration. <a href="https://cada.grand-challenge.org/">https://cada.grand-challenge.org/</a> ; dataset: <a href="https://cada.grand-challenge.org/Dataset/">https://cada.grand-challenge.org/Dataset/</a> ; segmentation track: <a href="https://cada-as.grand-challenge.org/">https://cada-as.grand-challenge.org/</a> ; paper: CADA 2020, <em>Medical Image Analysis</em> 2021, <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841521003789">https://www.sciencedirect.com/science/article/abs/pii/S1361841521003789</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>3DRA is invasive / less common than MRA or CTA.</li>
+  <li>Test labels withheld; highly imbalanced.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Complements ADAM with an angiography-modality aneurysm benchmark; the tiny-target-in-huge-volume framing is a clean illustration of why small aneurysms are canonically subtle, though no per-lesion perceptibility label is provided.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

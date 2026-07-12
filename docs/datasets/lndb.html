@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LNDb — Lung Nodule Database — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>LNDb — Lung Nodule Database</h1>
+<ul>
+  <li><strong>Tier:</strong> A — direct subtlety/perceptibility/conspicuity label</li>
+  <li><strong>Modality / anatomy:</strong> Thoracic CT / pulmonary nodules</li>
+  <li><strong>Finding type:</strong> Lung nodules</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>LIDC-style per-nodule ratings including <strong>subtlety</strong>, plus calcification, internal structure, lobulation, malignancy, margin, sphericity, spiculation, texture.</p>
+<h2>Label provenance</h2>
+<p>Multi-reader: 5 radiologists (≥4 yrs experience) participated; each scan read by ≥1 radiologist.</p>
+<h2>Size</h2>
+<p>294 CT scans (CHUSJ, Porto, Portugal, 2016–2018). v4 (2024) extends with annotations mined from clinical reports.</p>
+<h2>Access / licensing</h2>
+<p>Open via Zenodo and grand-challenge.org (LNDb Challenge). <a href="https://lndb.grand-challenge.org/">https://lndb.grand-challenge.org/</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Smaller than LIDC; designed as a complementary external dataset.</li>
+  <li>Multi-reader coverage is uneven (not all scans read by all 5).</li>
+  <li><strong>Verify before relying on:</strong> &quot;each scan read by ≥1 radiologist&quot; implies uneven multi-reader coverage. Verify per-nodule multi-reader coverage before using LNDb as a multi-rater dataset.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>Direct subtlety label, natural external-validation pairing with LIDC (same modality, same labeling scheme — closest match for running an LIDC-trained pipeline).</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>

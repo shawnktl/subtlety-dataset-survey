@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT-ScanGaze — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a class="active" href="../index.html#datasets">Datasets</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>CT-ScanGaze</h1>
+<ul>
+  <li><strong>Tier:</strong> C — adjacent / partial signal (process-level eye-tracking / gaze proxy)</li>
+  <li><strong>Modality / anatomy:</strong> Chest/body CT (3D volumes) / radiologist gaze</li>
+  <li><strong>Finding type:</strong> Process-level gaze / 3D scanpath signal during CT reading (not a single finding label)</li>
+</ul>
+<h2>Subtlety / perceptibility label</h2>
+<p>No finding-level subtlety label — it carries a <strong>process-level perceptibility signal</strong>: 3D eye-gaze scanpaths from expert radiologists reading CT, capturing where attention dwells and lingers (a direct search-difficulty / perceptibility proxy). Notably the <strong>first public eye-gaze dataset on CT</strong>, extending the gaze paradigm beyond the chest-radiograph gaze sets already in the survey (REFLACX, EGD-CXR, FG-CXR) into 3D volumetric reading.</p>
+<h2>Label provenance</h2>
+<p>Eye-gaze fixation sequences captured from expert radiologists during CT reading. <code>[VERIFY]</code> exact reader count.</p>
+<h2>Size</h2>
+<p>909 CT volumes with recorded 3D scanpaths.</p>
+<h2>Access / licensing</h2>
+<p>Public — data on Hugging Face (<code>phamtrongthang/CT-ScanGaze</code>), code at github.com/UARK-AICV/CTScanGaze. License <strong>CC-BY-NC-SA-4.0</strong> (non-commercial, share-alike). Paper: Pham et al., &quot;CT-ScanGaze,&quot; ICCV 2025, <a href="https://arxiv.org/abs/2507.12591">https://arxiv.org/abs/2507.12591</a></p>
+<h2>Caveats</h2>
+<ul>
+  <li>Reader count and exact anatomy/findings breakdown not enumerated in the README/abstract <code>[VERIFY via full paper]</code>.</li>
+  <li>Non-commercial + share-alike license.</li>
+</ul>
+<h2>Relevance to detectability</h2>
+<p>The first volumetric (3D) radiology gaze dataset — the same &quot;perceptibility-as-behavior&quot; angle as the existing CXR gaze sets, but in cross-sectional CT, where search patterns over slices are a richer proxy for how hard a finding is to locate.</p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
