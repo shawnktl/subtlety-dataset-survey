@@ -2,17 +2,17 @@
 
 | field | value |
 |---|---|
-| **Branch** | `agent/subtlety-dataset-search` |
+| **Branch** | `agent/subtlety-dataset-search-lung-nodule-subsection` |
 | **Project slug** | `subtlety-dataset-search` |
-| **Spec** | `agent` |
+| **Spec** | `task:lung-nodule-subsection` |
 
 ## Required behavior
 
-- **Push commits to `agent/subtlety-dataset-search` and only `agent/subtlety-dataset-search`.** Do NOT invent a
+- **Push commits to `agent/subtlety-dataset-search-lung-nodule-subsection` and only `agent/subtlety-dataset-search-lung-nodule-subsection`.** Do NOT invent a
   shorter or "cleaner" branch name. The rounds-repo status tracker matches
   PRs by exact branch name; any other name leaves the PR orphaned in
   tracking and requires manual fixup.
-- **Open the PR with `agent/subtlety-dataset-search` as head** against the repo's default branch
+- **Open the PR with `agent/subtlety-dataset-search-lung-nodule-subsection` as head** against the repo's default branch
   as base.
 - The branch already exists (the dispatch script created it before
   handing off to you). You're already checked out on it — just commit and
@@ -22,67 +22,73 @@
 
 # Original spec
 
-# Agent Spec — Subtlety/Perceptibility Dataset Survey Repo
+# Agent Task — Lung-Nodule (Segmented) Subsection for External Validation
 
 ## Objective
-Turn the completed 26-dataset survey (in this project's `research-output.md`) into a
-dedicated, browsable reference repo so the dataset landscape is organized at the
-repo level rather than living in a single markdown file. "Done" = a `knowledge-base`
-repo populated with one page per dataset, a tier-ranked index, access/licensing notes,
-and a crosswalk to the detectability framing — delivered as a PR on
-`shawnktl/subtlety-dataset-survey`.
 
-## Source of truth
-The authoritative content is `projects/subtlety-dataset-search/research-output.md` in
-the task-rounding repo. The dispatching step copies the project's spec to the target
-repo as `.agent/task.md`; the agent should also be given (or fetch) the
-`research-output.md` content as the input corpus. Do NOT re-research from scratch —
-restructure and lightly verify what's already there. Preserve every "verify directly
-before relying on" caveat already flagged in the survey.
+Add a dedicated **lung-nodule subsection** to the subtlety-dataset survey repo
+(`shawnktl/subtlety-dataset-survey`) that collects **every dataset in the survey containing
+segmented lung nodules** — the datasets usable for **external validation** of the
+`nodule-detectability` classifier. "Done" = a curated subsection page (markdown + rendered into
+the existing `docs/` site) listing each qualifying dataset with the segmentation/label details
+that determine whether it can serve as an external-validation set.
+
+This directly serves `nodule-detectability`, where external validation is now the primary
+scientific priority.
 
 ## Scope
-**SHOULD create / populate:**
-- `datasets/<dataset-id>.md` — one page per dataset (26 total). Each page: name, modality,
-  finding type, the subtlety/perceptibility/conspicuity label it carries, label provenance,
-  size, access conditions/licensing, tier (A/B/C), and a one-line "relevance to detectability."
-- `index.md` (or `study/topics.md` per the bootstrap convention) — tier-ranked table linking
-  to each dataset page. Tier A = direct subtlety/conspicuity labels (LIDC-IDRI, JSRT, CBIS-DDSM,
-  LNDb, OPTIMAM/OMI-DB); Tier B/C below.
-- `notes/follow-ups.md` — the top-3 follow-ups (CheXthought; JSRT+LNDb external-validation
-  pairing; CBIS-DDSM → OPTIMAM mammography) and the major gap (MR-with-subtlety-labels).
-- `resources/sources.md` — links/citations for each dataset's source page.
-- `PROJECT_SUMMARY.md` — scope (publicly available datasets annotating finding subtlety/
-  perceptibility/conspicuity), why (broader detectability product/pipeline framing from
-  `nodule-detectability`), and how the repo is used.
+
+**SHOULD touch (in `shawnktl/subtlety-dataset-survey`):**
+- Add `datasets/` cross-links / a new `lung-nodules.md` (or `subsections/lung-nodules.md`) subsection page.
+- Update `index.md` to link the new subsection.
+- Rebuild the `docs/` site via the existing `scripts/build_site.py` (stdlib, deterministic — verify byte-identical rebuild).
 
 **MUST NOT touch:**
-- `BOOTSTRAP.md`, `CLAUDE.md`, `scripts/` — provided by the knowledge-base bootstrap; leave as-is.
+- The auto-refresh infra / cron; unrelated datasets' pages.
+- Do not fabricate datasets, segmentation availability, or licensing — every claim must be verifiable; flag anything uncertain with `[VERIFY]`.
+
+## What qualifies for the subsection
+
+A dataset belongs in the lung-nodule subsection if it contains **lung nodules with segmentation
+masks** (not just bounding boxes or classification labels), since external validation of a
+segmentation-derived detectability pipeline needs comparable segmentations. For each, capture:
+
+- **Segmentation type** — voxel/pixel masks vs. contours vs. bbox-only (note if only bbox — it's a weaker fit).
+- **Subtlety / perceptibility label** — present? (e.g. LIDC radiologist subtlety ratings) or absent.
+- **Modality & count** — CT (expected majority); number of nodules/cases.
+- **Access & license** — open / registered / restricted; redistribution terms.
+- **External-validation fit** — a one-line verdict on how usable it is for validating the LIDC-trained detectability model (label comparability, domain shift caveats).
+
+Start from the datasets already in the survey (LIDC-IDRI, LNDb, and others), then confirm
+segmentation availability per dataset. Known strong candidates to check first: **LIDC-IDRI**
+(masks + subtlety), **LNDb**, **NLST-derived segmentations**, **LUNA16** (LIDC-derived), **DLCSD**,
+and any others in the index with lung-nodule segmentations — verify each rather than assuming.
 
 ## Tasks
-1. Read `BOOTSTRAP.md` / `CLAUDE.md` to understand the knowledge-base layout.
-2. Parse `research-output.md` into the 26 per-dataset pages under `datasets/`.
-3. Build the tier-ranked `index.md` linking every dataset page.
-4. Write `notes/follow-ups.md` (top-3 + the MR gap) and `resources/sources.md`.
-5. Fill `PROJECT_SUMMARY.md`.
-6. Carry forward every "verify before relying on" caveat verbatim onto the relevant dataset page.
-7. Open a PR from the work branch.
+
+1. Scan the existing survey for lung-nodule datasets; determine segmentation availability for each (verify, don't assume).
+2. Write the subsection page with the per-dataset fields above and an external-validation-fit verdict.
+3. Link it from `index.md`; rebuild `docs/` with `scripts/build_site.py` (byte-identical verify).
+4. Preserve/propagate all `[VERIFY]` caveats; note any lung-nodule datasets excluded and why (e.g. bbox-only).
 
 ## Constraints
-- Work on branch `agent/subtlety-dataset-search`.
-- Commit with prefix `agent:`.
-- Open a PR when done; do not push to `main` directly.
-- Do not invent datasets or labels not present in the source survey.
+
+- Work on branch `agent/subtlety-dataset-search-lung-nodule-subsection`; commit prefix `agent:`; open a PR, don't push to master/main.
+- No fabricated datasets/labels/licenses; `[VERIFY]` anything unconfirmed.
+- Deterministic site rebuild (byte-identical on re-run).
 
 ## Acceptance Criteria
-- [ ] One `datasets/<id>.md` page exists per dataset in the survey (≈26), each with tier + access + relevance fields.
-- [ ] `index.md` ranks datasets by tier and links every page.
-- [ ] `notes/follow-ups.md` captures the top-3 follow-ups and the MR-subtlety gap.
-- [ ] All prior "verify directly" caveats are preserved.
-- [ ] `BOOTSTRAP.md`, `CLAUDE.md`, `scripts/` unchanged.
-- [ ] A PR is open from `agent/subtlety-dataset-search`.
+
+- [ ] A lung-nodule subsection page lists every survey dataset with segmented lung nodules, with segmentation type / subtlety-label / modality+count / access+license / external-validation-fit per dataset
+- [ ] `index.md` links the subsection; `docs/` rebuilt deterministically via `build_site.py`
+- [ ] Bbox-only or non-segmented lung datasets are explicitly excluded with reason
+- [ ] No fabricated content; `[VERIFY]` flags preserved for anything unconfirmed
+- [ ] PR opened on `shawnktl/subtlety-dataset-survey`
 
 ## Context
-Spawned from `nodule-detectability`. The downstream consumer is the broader
-detectability product framing (patent-lawyer interest, MAE-band vs k-NN output). The
-repo's value is making "what labeled data exists across modalities/findings" answerable
-at a glance, so the framing's generality (or nodule-specificity) is easy to reason about.
+
+Consumer: `nodule-detectability` external validation (LIDC-trained detectability classifier
+needs comparable segmented lung-nodule datasets to test generalization). The survey already
+holds a 59-dataset cross-modality index; this carves out the lung-nodule-with-segmentation slice
+as a purpose-built validation menu. Dispatch with
+`python dispatch-agents.py --dispatch subtlety-dataset-search --spec task:lung-nodule-subsection`.
