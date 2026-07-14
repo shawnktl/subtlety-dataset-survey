@@ -2,6 +2,8 @@
 
 Tier-ranked index of 59 public radiology datasets surveyed for **subtlety / perceptibility / conspicuity signal** — read broadly: explicit subtlety/conspicuity labels, multi-reader disagreement designs, miss-rate / perceptual-error studies, eye-tracking/gaze datasets, difficulty-stratified subsets, and datasets whose *finding is canonically subtle/hard-to-detect* (early ischemic change, small ICH, subtle fractures, small PE, small mets, PDAC). Originally a chest/breast-dominated set of 26 (built from the survey in `nodule-detectability`'s task-rounding project); a 2026-06-24 discovery sweep widened the net to cover neuro (esp. stroke), abdomen/body, and other under-represented regions. See `PROJECT_SUMMARY.md` for scope, `notes/follow-ups.md` for next moves, and `notes/search-strategy.md` for the discovery method/log.
 
+**Curated subsection:** [Lung-nodule (segmented) external-validation menu](subsections/lung-nodules.md) — the survey datasets with **segmented** lung nodules (masks, not bbox/classification), carved out as the candidate set for external validation of the LIDC-trained `nodule-detectability` classifier.
+
 ## Tiering
 
 - **Tier A — Direct subtlety/perceptibility/conspicuity (or per-exam difficulty/quality) labels.** A dataset carries an explicit numeric or categorical subtlety/conspicuity/difficulty field.

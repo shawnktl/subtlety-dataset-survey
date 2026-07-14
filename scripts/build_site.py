@@ -287,6 +287,7 @@ def nav_html(depth: int, active: str) -> str:
     links = [
         ("index", "Index", f"{prefix}index.html"),
         ("datasets", "Datasets", f"{prefix}index.html#datasets"),
+        ("lung-nodules", "Lung nodules", f"{prefix}subsections/lung-nodules.html"),
         ("notes", "Follow-ups", f"{prefix}notes/follow-ups.html"),
         ("sources", "Sources", f"{prefix}resources/sources.html"),
         ("summary", "Project summary", f"{prefix}project-summary.html"),
@@ -551,6 +552,16 @@ def build() -> None:
         body = render_markdown(md)
         out_rel = f"datasets/{src.stem}.html"
         write(DOCS / out_rel, page(title, body, depth=1, active="datasets"))
+        written.append(out_rel)
+
+    # ---- Subsection pages (curated cross-cuts of the survey) ---------
+    subsection_files = sorted((REPO_ROOT / "subsections").glob("*.md"))
+    for src in subsection_files:
+        md = read(src)
+        title = first_heading(md) or src.stem
+        active = "lung-nodules" if src.stem == "lung-nodules" else "index"
+        out_rel = f"subsections/{src.stem}.html"
+        write(DOCS / out_rel, page(title, render_markdown(md), depth=1, active=active))
         written.append(out_rel)
 
     # ---- Notes / follow-ups ------------------------------------------

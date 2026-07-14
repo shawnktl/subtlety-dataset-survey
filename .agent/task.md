@@ -2,17 +2,17 @@
 
 | field | value |
 |---|---|
-| **Branch** | `agent/subtlety-dataset-search-comprehensive-discovery-sweep` |
+| **Branch** | `agent/subtlety-dataset-search-lung-nodule-subsection` |
 | **Project slug** | `subtlety-dataset-search` |
-| **Spec** | `task:comprehensive-discovery-sweep` |
+| **Spec** | `task:lung-nodule-subsection` |
 
 ## Required behavior
 
-- **Push commits to `agent/subtlety-dataset-search-comprehensive-discovery-sweep` and only `agent/subtlety-dataset-search-comprehensive-discovery-sweep`.** Do NOT invent a
+- **Push commits to `agent/subtlety-dataset-search-lung-nodule-subsection` and only `agent/subtlety-dataset-search-lung-nodule-subsection`.** Do NOT invent a
   shorter or "cleaner" branch name. The rounds-repo status tracker matches
   PRs by exact branch name; any other name leaves the PR orphaned in
   tracking and requires manual fixup.
-- **Open the PR with `agent/subtlety-dataset-search-comprehensive-discovery-sweep` as head** against the repo's default branch
+- **Open the PR with `agent/subtlety-dataset-search-lung-nodule-subsection` as head** against the repo's default branch
   as base.
 - The branch already exists (the dispatch script created it before
   handing off to you). You're already checked out on it — just commit and
@@ -22,95 +22,73 @@
 
 # Original spec
 
-# Agent Spec — Subtlety/Perceptibility Dataset Survey: Comprehensive Discovery Sweep (wider net)
+# Agent Task — Lung-Nodule (Segmented) Subsection for External Validation
 
 ## Objective
-Substantially **expand** the dataset index beyond its current chest/breast-dominated 26. The
-original survey (2026-06-01) was spawned from a lung-nodule project and scoped to datasets with
-*explicit* subtlety labels, which biased it toward thoracic CT / CXR / mammography. This sweep
-**casts a much wider net** — by anatomy/modality and by the *kind* of detectability signal — and
-lands the new datasets in the existing repo structure. "Done" = the index meaningfully covers
-neuro (esp. stroke), abdominal/body, and other under-represented areas, with every new entry
-profiled and cited to the same standard as the existing pages.
 
-## The two ways the net widens
+Add a dedicated **lung-nodule subsection** to the subtlety-dataset survey repo
+(`shawnktl/subtlety-dataset-survey`) that collects **every dataset in the survey containing
+segmented lung nodules** — the datasets usable for **external validation** of the
+`nodule-detectability` classifier. "Done" = a curated subsection page (markdown + rendered into
+the existing `docs/` site) listing each qualifying dataset with the segmentation/label details
+that determine whether it can serve as an external-validation set.
 
-### 1. Conceptual scope — include implicit detectability proxies, not just explicit "subtlety" fields
-Keep the existing tiering but treat the following as **in-scope difficulty/detectability signal**,
-not just a literal numeric "subtlety 1–5" field:
-- Explicit subtlety / conspicuity / perceptibility labels (Tier A — as before).
-- Multi-reader / multi-rater disagreement designs (Tier B difficulty proxy — as before).
-- **Miss-rate / perceptual-error / "commonly missed finding" datasets** (e.g. retrospectively-missed
-  cancers, satisfaction-of-search studies).
-- **Eye-tracking / gaze datasets** (process-level perceptibility signal).
-- **Hard/easy or difficulty-stratified subsets**, screening interval cancers, "subtle vs obvious"
-  splits.
-- Datasets where the *finding itself is canonically subtle/hard-to-detect* even without a label
-  (e.g. early ischemic change / hyperdense vessel sign, small ICH, subtle fractures, small PE).
+This directly serves `nodule-detectability`, where external validation is now the primary
+scientific priority.
 
-### 2. Coverage — explicitly hunt the gaps
-Current coverage is ~15 chest, 6 breast, only 2 neuro (BraTS tumor, ISBI-MS), 2 MSK, 1 fundus,
-1 prostate, and **zero stroke / zero abdominal-lesion**. Prioritize discovery in:
-- **Neuro — STROKE especially**: ischemic stroke lesion (e.g. ISLES editions, ATLAS v2.0,
-  AISD/acute-ischemic NCCT), intracranial hemorrhage (e.g. RSNA ICH, CQ500, BHSD), aneurysm
-  (e.g. ADAM, CADA), plus white-matter/MS/mets where detectability is the question.
-- **Abdomen / body**: liver lesions (e.g. LiTS), kidney (e.g. KiTS), pancreas (e.g. MSD-Pancreas,
-  PANORAMA, TCIA pancreas), and multi-organ sets (e.g. MSD/Decathlon, AMOS, AbdomenCT-1K) where a
-  detectability/conspicuity or multi-reader angle exists.
-- **Other under-covered**: PE on CTPA (e.g. RSNA-PE), subtle fractures, pneumothorax, spine,
-  cardiac — wherever a detectability/perceptibility or reader-disagreement signal is documented.
+## Scope
 
-These are *leads, not a closed list* — use them to seed discovery, then go broader.
+**SHOULD touch (in `shawnktl/subtlety-dataset-survey`):**
+- Add `datasets/` cross-links / a new `lung-nodules.md` (or `subsections/lung-nodules.md`) subsection page.
+- Update `index.md` to link the new subsection.
+- Rebuild the `docs/` site via the existing `scripts/build_site.py` (stdlib, deterministic — verify byte-identical rebuild).
 
-## Discovery method
-1. **Check the repo first** for any existing candidate-finder script (`scripts/`, `.github/`) and the
-   `notes/` files; if a finder exists, run/extend it. Do not assume a specific script name.
-2. **Primary engine is web search.** Sweep multiple channels per the original strategy intent:
-   literature (Semantic Scholar / OpenAlex / Europe PMC / PubMed + citation chasing on the existing
-   Tier-A papers), and open dataset repositories (TCIA, PhysioNet, Zenodo, Figshare, HuggingFace,
-   grand-challenge.org, Papers With Code, Kaggle, OpenNeuro, Synapse, OASIS, ADNI-style registries).
-3. For each candidate, verify it actually carries a detectability/subtlety/disagreement signal (or is
-   a canonically-subtle-finding dataset) **before** adding it — don't pad the index with generic
-   segmentation sets that have no perceptibility angle. If borderline, note why and place in Tier C.
+**MUST NOT touch:**
+- The auto-refresh infra / cron; unrelated datasets' pages.
+- Do not fabricate datasets, segmentation availability, or licensing — every claim must be verifiable; flag anything uncertain with `[VERIFY]`.
 
-## Scope (files)
-- SHOULD create: one new `datasets/<name>.md` per added dataset — **match the existing page format
-  exactly** (open `datasets/brats.md` and `datasets/lidc-idri.md` as templates).
-- SHOULD update: `index.md` (add rows to the right tier tables; update the "N public datasets" count
-  and the scope blurb to reflect the wider net), `synthesis.md`/`PROJECT_SUMMARY.md`/`README.md`
-  counts and the landscape read, and `notes/follow-ups.md`.
-- SHOULD add: a short `notes/search-strategy.md` (if absent) or append to `notes/follow-ups.md` — a
-  log of which channels/queries were run and what they surfaced, so the next sweep compounds.
-- MUST NOT touch: the existing 26 dataset pages' content (except adding cross-links), the HTML build
-  scripts, or the Pages workflow. Render/extend, don't rewrite.
+## What qualifies for the subsection
+
+A dataset belongs in the lung-nodule subsection if it contains **lung nodules with segmentation
+masks** (not just bounding boxes or classification labels), since external validation of a
+segmentation-derived detectability pipeline needs comparable segmentations. For each, capture:
+
+- **Segmentation type** — voxel/pixel masks vs. contours vs. bbox-only (note if only bbox — it's a weaker fit).
+- **Subtlety / perceptibility label** — present? (e.g. LIDC radiologist subtlety ratings) or absent.
+- **Modality & count** — CT (expected majority); number of nodules/cases.
+- **Access & license** — open / registered / restricted; redistribution terms.
+- **External-validation fit** — a one-line verdict on how usable it is for validating the LIDC-trained detectability model (label comparability, domain shift caveats).
+
+Start from the datasets already in the survey (LIDC-IDRI, LNDb, and others), then confirm
+segmentation availability per dataset. Known strong candidates to check first: **LIDC-IDRI**
+(masks + subtlety), **LNDb**, **NLST-derived segmentations**, **LUNA16** (LIDC-derived), **DLCSD**,
+and any others in the index with lung-nodule segmentations — verify each rather than assuming.
 
 ## Tasks
-1. Dedup against the existing 26 (don't re-add LIDC, BraTS, etc.).
-2. Run the multi-channel discovery, gap-regions first (neuro/stroke, then abdomen/body, then other).
-3. Write a cited per-dataset page for each genuine hit, slotted into the correct tier (A/B/C).
-4. Update `index.md` tables + counts, the synthesis/README landscape read, and the notes log.
-5. Aim for breadth: a successful sweep should add a substantial batch (target ≥15 new datasets if the
-   signal supports it), with real stroke and abdominal representation. If a region genuinely lacks
-   public detectability datasets, **say so explicitly** in the notes rather than padding.
+
+1. Scan the existing survey for lung-nodule datasets; determine segmentation availability for each (verify, don't assume).
+2. Write the subsection page with the per-dataset fields above and an external-validation-fit verdict.
+3. Link it from `index.md`; rebuild `docs/` with `scripts/build_site.py` (byte-identical verify).
+4. Preserve/propagate all `[VERIFY]` caveats; note any lung-nodule datasets excluded and why (e.g. bbox-only).
 
 ## Constraints
-- Work on branch `agent/subtlety-dataset-search-discovery-sweep`
-- Commit with prefix `agent:`
-- Don't push to main directly; open a PR when done
-- Cite every dataset (paper / repo URL); flag unconfirmed claims `[VERIFY]`
-- Preserve the existing tiering definitions and page format
+
+- Work on branch `agent/subtlety-dataset-search-lung-nodule-subsection`; commit prefix `agent:`; open a PR, don't push to master/main.
+- No fabricated datasets/labels/licenses; `[VERIFY]` anything unconfirmed.
+- Deterministic site rebuild (byte-identical on re-run).
 
 ## Acceptance Criteria
-- [ ] Real **stroke** representation added (ischemic lesion and/or hemorrhage and/or aneurysm)
-- [ ] Real **abdominal/body** lesion representation added (liver/kidney/pancreas/multi-organ)
-- [ ] Each new dataset has a cited page in the existing format, slotted into the correct tier
-- [ ] `index.md` count + scope blurb and the synthesis/README landscape read updated to match
-- [ ] `notes/` records the channels/queries run and what they surfaced (so the next sweep compounds)
-- [ ] No generic no-perceptibility-signal segmentation sets padded in without justification
+
+- [ ] A lung-nodule subsection page lists every survey dataset with segmented lung nodules, with segmentation type / subtlety-label / modality+count / access+license / external-validation-fit per dataset
+- [ ] `index.md` links the subsection; `docs/` rebuilt deterministically via `build_site.py`
+- [ ] Bbox-only or non-segmented lung datasets are explicitly excluded with reason
+- [ ] No fabricated content; `[VERIFY]` flags preserved for anything unconfirmed
+- [ ] PR opened on `shawnktl/subtlety-dataset-survey`
 
 ## Context
-This is the "much more exhaustive discovery" the user asked for on 2026-06-24, now unblocked because
-PR #4 (auto-refresh machinery) merged. The driving use case is the broader detectability product
-framing in `nodule-detectability` — knowing what data exists *across* anatomy (not just lung) shapes
-whether the detectability framing generalizes. The user specifically flagged the absence of
-neuro/stroke/body datasets as the gap to close.
+
+Consumer: `nodule-detectability` external validation (LIDC-trained detectability classifier
+needs comparable segmented lung-nodule datasets to test generalization). The survey already
+holds a 59-dataset cross-modality index; this carves out the lung-nodule-with-segmentation slice
+as a purpose-built validation menu. Dispatch with
+`python dispatch-agents.py --dispatch subtlety-dataset-search --spec task:lung-nodule-subsection`.

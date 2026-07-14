@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lung-Nodule (Segmented) Subsection — External-Validation Menu — Subtlety Dataset Survey</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-nav">
+  <a class="brand" href="../index.html">Subtlety / Perceptibility Dataset Survey</a>
+  <nav>
+    <a href="../index.html">Index</a>
+    <a href="../index.html#datasets">Datasets</a>
+    <a class="active" href="../subsections/lung-nodules.html">Lung nodules</a>
+    <a href="../notes/follow-ups.html">Follow-ups</a>
+    <a href="../resources/sources.html">Sources</a>
+    <a href="../project-summary.html">Project summary</a>
+  </nav>
+</header>
+<main>
+
+<h1>Lung-Nodule (Segmented) Subsection — External-Validation Menu</h1>
+<p>A purpose-built slice of the survey: <strong>every dataset already in this survey that contains lung nodules with segmentation masks</strong> (voxel/pixel masks or radiologist contours — <em>not</em> bounding-box-only or classification-only labels). This is the candidate set for <strong>external validation</strong> of the LIDC-trained <code>nodule-detectability</code> classifier, where segmentation-derived detectability needs comparably <em>segmented</em> nodules to test generalization.</p>
+<p><strong>Inclusion rule:</strong> a dataset qualifies only if lung-nodule <strong>segmentation masks/contours</strong> are confirmed available. Datasets with lung nodules but only bounding boxes, center coordinates, or presence/absence labels are listed under <strong>Excluded</strong> with a stated reason. Every claim here was checked against the dataset&#x27;s own page and primary source; anything unconfirmed is flagged <code>[VERIFY]</code> and must be confirmed directly before relying on it.</p>
+<p><strong>Method note:</strong> the source survey scan surfaced five lung-nodule datasets (LIDC-IDRI, LNDb, JSRT, NLST, ChestX-Det). Segmentation availability was verified per dataset — two qualify, three are excluded (see reasons). No datasets were fabricated; candidates not currently in the survey are listed separately as follow-ups.</p>
+<hr>
+<h2>Qualifying datasets (segmented lung nodules)</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Segmentation type</th>
+<th>Subtlety / perceptibility label</th>
+<th>Modality &amp; count</th>
+<th>Access &amp; license</th>
+<th>External-validation fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../datasets/lidc-idri.html">LIDC-IDRI</a></td>
+<td>Per-reader nodule <strong>contours</strong> (boundary outlines on every slice, up to 4 radiologists) → convertible to 3D voxel masks (pylidc / dcmqi; DICOM-SEG re-encoding exists)</td>
+<td><strong>Yes</strong> — per-nodule subtlety <strong>1 (&quot;extremely subtle&quot;) – 5 (&quot;obvious&quot;)</strong>, up to 4 readers, per-reader signal preserved</td>
+<td>Thoracic CT; 1,018 cases, ~2,600+ characterized nodules (contours for nodules ≥3 mm)</td>
+<td>Open via TCIA; CC BY 3.0 <code>[VERIFY exact license tag]</code></td>
+<td><strong>Anchor / training source, not a true external set</strong> — this is the data the model learns from. Defines the subtlety-label schema and comparability standard for every other entry; use held-out LIDC for <em>internal</em> validation only.</td>
+</tr>
+<tr>
+<td><a href="../datasets/lndb.html">LNDb</a></td>
+<td>Per-nodule <strong>voxel/contour masks</strong> for nodules ≥3 mm (LNDb Sub-Challenge B &quot;Nodule Segmentation&quot;; segmented per LIDC-IDRI criteria)</td>
+<td><strong>Yes</strong> — LIDC-style per-nodule ratings including <strong>subtlety</strong> (+ margin, lobulation, spiculation, texture, calcification, sphericity, internal structure, malignancy)</td>
+<td>Thoracic CT; 294 scans (CHUSJ Porto, 2016–2018); v4 (2024) adds report-mined annotations</td>
+<td>Open via Zenodo + grand-challenge.org (LNDb Challenge); redistribution/license terms <code>[VERIFY Zenodo record license]</code></td>
+<td><strong>Strongest external-validation fit in the survey</strong> — same modality (CT) and same LIDC-style subtlety scheme, explicitly built as a complementary external set to LIDC. Direct drop-in test for an LIDC-trained detectability pipeline. Caveats: single-center (scanner/population domain shift), smaller (294), uneven multi-reader coverage <code>[VERIFY per-nodule reader coverage]</code>, and segmentation interobserver Jaccard ≈0.567 (mask-boundary noise).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Count: 2 qualifying datasets.</strong></p>
+<h3>Why these two and nothing else</h3>
+<p>The segmentation-comparable external-validation menu is genuinely thin. LIDC-IDRI defines the label schema (and is the training anchor, so it can&#x27;t validate generalization against itself); **LNDb is effectively the only survey dataset that is both segmented <em>and</em> subtlety-labeled <em>and</em> external to LIDC** — which is exactly why the <code>notes/follow-ups.md</code> &quot;JSRT + LNDb pairing&quot; move ranks it first for the CT arm. JSRT provides the cross-<em>modality</em> (CXR) subtlety test but not a segmentation-comparable one (see Excluded).</p>
+<hr>
+<h2>Excluded lung-nodule datasets (with reason)</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Lung nodules?</th>
+<th>Segmentation masks?</th>
+<th>Reason for exclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../datasets/jsrt.html">JSRT</a></td>
+<td>Yes (CXR)</td>
+<td><strong>No</strong> — nodule <strong>center (X,Y) coordinates + size only</strong></td>
+<td>The publicly distributed nodule annotation is location + size, not a per-nodule mask. The associated SCR (Segmentation in Chest Radiographs) masks segment <strong>lung fields / heart / clavicles, not nodules.</strong> Retains a valuable 5-level (consensus) CXR subtlety label, so it stays the cross-modality <em>subtlety</em> test — just not a <em>segmentation</em> one.</td>
+</tr>
+<tr>
+<td><a href="../datasets/nlst.html">NLST</a></td>
+<td>Yes (LDCT screening)</td>
+<td><strong>No</strong> — screening outcomes only; no native nodule masks or perceptibility labels</td>
+<td>No packaged segmentation. A &quot;missed-on-prior&quot; subset is <em>derivable</em> but must be reconstructed by case linkage. NLST-<em>derived</em> pixel-level segmentation sets exist externally (e.g., NLSTseg <code>[VERIFY]</code>) but are separate datasets <strong>not in this survey</strong>.</td>
+</tr>
+<tr>
+<td><a href="../datasets/chestx-det.html">ChestX-Det</a></td>
+<td>Yes (&quot;Nodule&quot; among 10 CXR classes)</td>
+<td><strong>Bbox-only in the confirmed public release</strong></td>
+<td>The confirmed downloadable release (ChestX-Det10, GitHub) provides <strong>bounding boxes</strong> for the Nodule class (annotation format <code>[x1,y1,x2,y2]</code>), not masks. An extended release with polygon/segmentation annotations is referenced in the literature, but downloadable Nodule-category <strong>masks are not confirmed</strong> <code>[VERIFY extended-release segmentation availability]</code>. Also CXR (2D), not CT. Excluded per the &quot;no bbox-only&quot; rule.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Count: 3 excluded (JSRT, NLST, ChestX-Det).</strong></p>
+<hr>
+<h2>Candidate segmentation sources <em>not yet in this survey</em></h2>
+<p>Flagged as follow-ups, <strong>not</strong> entries — none are currently surveyed, so details below are unverified pointers, not survey claims. Add + verify each before use.</p>
+<ul>
+  <li><strong>LUNA16</strong> — LIDC-derived detection subset (888 CTs with slice thickness ≤2.5 mm; nodule</li>
+</ul>
+<p><strong>centroids + diameters</strong> for nodules accepted by ≥3/4 readers). Provides <em>detection</em> annotations, not native masks — any segmentation is <strong>inherited from LIDC</strong>, so it adds no new mask source beyond LIDC. <code>[VERIFY]</code></p>
+<ul>
+  <li><strong>DLCSD</strong> (Duke Lung Cancer Screening Dataset) — NLST/Duke-derived screening CT; lung-nodule</li>
+</ul>
+<p>segmentation availability and license <code>[VERIFY]</code>. Not in this survey.</p>
+<ul>
+  <li><strong>NLSTseg</strong> — pixel-level lung-cancer segmentation derived from NLST LDCT images; availability,</li>
+</ul>
+<p>count, and license <code>[VERIFY]</code>. Not in this survey.</p>
+<p>If any of these is confirmed to carry downloadable lung-nodule masks, add a <code>datasets/&lt;id&gt;.md</code> page to the survey first, then promote it into the Qualifying table above.</p>
+<hr>
+<h2>Open <code>[VERIFY]</code> flags on this page</h2>
+<ul>
+  <li>LIDC-IDRI exact license tag (CC BY 3.0 assumed from TCIA).</li>
+  <li>LNDb Zenodo record license / redistribution terms; per-nodule multi-reader coverage.</li>
+  <li>ChestX-Det extended-release segmentation availability for the Nodule category.</li>
+  <li>LUNA16 / DLCSD / NLSTseg — all details unverified (out-of-survey candidates).</li>
+</ul>
+<p><em>See <code>../notes/follow-ups.md</code> §2 (JSRT + LNDb external-validation pairing) for the companion next-move on the CT/CXR subtlety-transfer test.</em></p>
+</main>
+<footer class="site-footer">
+  <p>Generated from the markdown survey by <code>scripts/build_site.py</code>.
+  Content is rendered, not rewritten — verify every dataset's caveats against its primary source before relying on it.</p>
+</footer>
+</body>
+</html>
